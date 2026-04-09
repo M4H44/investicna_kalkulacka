@@ -42,6 +42,19 @@ function vypocitaj() {
     const riziko = document.getElementById('riziko').value
     const horizont = document.getElementById('horizont').value
 
+    const vek = parseInt(document.getElementById('vek').value)
+
+// Korektor podľa veku
+    let rizikoPoupravene = riziko
+    if (vek > 55) {
+        if (riziko === 'agresivny') rizikoPoupravene = 'vyvazeny'
+        if (riziko === 'vyvazeny') rizikoPoupravene = 'konzervativny'
+    }
+    if (vek < 30) {
+        if (riziko === 'konzervativny') rizikoPoupravene = 'vyvazeny'
+        if (riziko === 'vyvazeny') rizikoPoupravene = 'agresivny'
+    }
+
     const vlozene = mesacna * 12 * roky
 
     // Výpočet pre každý index
@@ -83,15 +96,22 @@ function vypocitaj() {
     document.getElementById('tabulkaVysledkov').innerHTML = tabulkaHTML
 
     // Odporúčanie ETF
-    const odp = etfOdporucania[riziko][horizont]
+    const odp = etfOdporucania[rizikoPoupravene][horizont]
+    const vekInfo = vek > 55
+        ? `<p class="text-warning small">⚠️ Vzhľadom na váš vek (${vek}) sme znížili riziko portfólia.</p>`
+        : vek < 30
+            ? `<p class="text-info small">💡 Máte ${vek} rokov — odporúčame agresívnejší prístup.</p>`
+            : ''
+
     document.getElementById('odporucanie').innerHTML = `
-        <div class="alert alert-success">
-            <h5>🎯 ${odp.etf}</h5>
-            <p class="mb-1"><strong>ISIN:</strong> ${odp.isin}</p>
-            <p class="mb-0"><strong>Prečo?</strong> ${odp.dovod}</p>
-        </div>
-        <p class="text-muted small">⚠️ Toto nie je investičné poradenstvo. Informácie sú len vzdelávacie.</p>
-    `
+    ${vekInfo}
+    <div class="alert alert-success">
+        <h5>🎯 ${odp.etf}</h5>
+        <p class="mb-1"><strong>ISIN:</strong> ${odp.isin}</p>
+        <p class="mb-0"><strong>Prečo?</strong> ${odp.dovod}</p>
+    </div>
+    <p class="text-muted small">⚠️ Toto nie je investičné poradenstvo. Informácie sú len vzdelávacie.</p>
+`
 
     // Brokeri
     document.getElementById('brokeri').innerHTML = `
