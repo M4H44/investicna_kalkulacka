@@ -113,3 +113,21 @@ h1 {
     h1 { font-size: 1.8rem; }
     .table { font-size: 0.85rem; }
 }
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #1a1a2e, #16213e) !important;
+}
+
+footer h6 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+footer hr {
+    opacity: 0.2;
+}
+
+footer .text-light {
+    opacity: 0.8;
+    line-height: 1.6;
+}
