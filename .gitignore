@@ -1,0 +1,15 @@
+.idea/
+# WebStorm
+
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (ak neskôr pridáme)
+node_modules/
+npm-debug.log
+
+# Build
+dist/
+.env
