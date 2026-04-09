@@ -142,6 +142,27 @@ h1 {
     border-bottom: 1px dashed #aaa;
 }
 
+.broker-expand-hint {
+    font-size: 0.75rem;
+    opacity: 0.5;
+}
+
+.broker-detail-cell {
+    background: #f8f9fa;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    padding: 10px 16px !important;
+    color: #444;
+}
+
+.broker-detail-cell strong {
+    color: #1a1a2e;
+}
+
+@media (min-width: 769px) {
+    .broker-expand-hint { display: none; }
+}
+
 /* Mobile */
 @media (max-width: 768px) {
     h1 { font-size: 1.8rem; }
