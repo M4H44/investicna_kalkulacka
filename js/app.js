@@ -164,9 +164,6 @@ function vypocitaj() {
     document.querySelectorAll('.etf-tooltip-trigger').forEach(el => {
         new bootstrap.Tooltip(el, { trigger: 'hover focus', html: true, sanitize: false })
     })
-    document.querySelectorAll('.broker-tip').forEach(el => {
-        new bootstrap.Tooltip(el, { trigger: 'hover focus', html: true, sanitize: false, placement: 'right', title: brokerTooltip(el.dataset.broker) })
-    })
 
     // Brokeri
     // Výpočet nákladov brokerov
@@ -378,6 +375,30 @@ function aktualizujLabely() {
         aktualizujLabely()
         vypocitaj()
     })
+})
+
+// Custom broker tooltip — event delegácia na statickom kontajneri
+const brokerTooltipEl = document.getElementById('broker-tooltip')
+
+document.getElementById('brokeri').addEventListener('mouseover', e => {
+    const tip = e.target.closest('.broker-tip')
+    if (!tip) return
+    const klic = tip.dataset.broker
+    brokerTooltipEl.innerHTML = brokerTooltip(klic)
+    brokerTooltipEl.style.display = 'block'
+})
+
+document.getElementById('brokeri').addEventListener('mousemove', e => {
+    brokerTooltipEl.style.left = (e.clientX + 14) + 'px'
+    brokerTooltipEl.style.top  = (e.clientY + 14) + 'px'
+})
+
+document.getElementById('brokeri').addEventListener('mouseleave', () => {
+    brokerTooltipEl.style.display = 'none'
+})
+
+document.getElementById('brokeri').addEventListener('mouseout', e => {
+    if (!e.target.closest('.broker-tip')) brokerTooltipEl.style.display = 'none'
 })
 
 // Inicializácia footer broker tooltipov

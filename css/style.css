@@ -116,6 +116,32 @@ h1 {
     to   { opacity: 1; transform: translateY(0); }
 }
 
+/* Custom broker tooltip */
+#broker-tooltip {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    max-width: 320px;
+    background: #1a1a2e;
+    color: #f0f0f0;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    pointer-events: none;
+}
+
+#broker-tooltip strong {
+    color: #fff;
+}
+
+.broker-tip {
+    cursor: help;
+    border-bottom: 1px dashed #aaa;
+}
+
 /* Mobile */
 @media (max-width: 768px) {
     h1 { font-size: 1.8rem; }
