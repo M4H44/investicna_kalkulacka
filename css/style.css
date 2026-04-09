@@ -70,8 +70,9 @@ h1 {
     overflow: hidden;
 }
 
-.table thead {
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
+.table thead th {
+    background: linear-gradient(135deg, #1a1a2e, #16213e) !important;
+    color: #fff;
 }
 
 .table-hover tbody tr:hover {
@@ -112,6 +113,7 @@ h1 {
 @media (max-width: 768px) {
     h1 { font-size: 1.8rem; }
     .table { font-size: 0.85rem; }
+    .hide-mobile { display: none; }
 }
 /* Footer */
 footer {

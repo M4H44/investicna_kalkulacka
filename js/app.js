@@ -40,9 +40,11 @@ function vypocitaj() {
     const roky = parseInt(document.getElementById('pocetRokov').value)
     const inflacia = parseFloat(document.getElementById('inflacia').value)
     const riziko = document.getElementById('riziko').value
-    const horizont = document.getElementById('horizont').value
-
+    const horizont = roky <= 5 ? 'kratky' : 'dlhy'
     const vek = parseInt(document.getElementById('vek').value)
+
+    if (isNaN(mesacna) || isNaN(roky) || isNaN(inflacia) || isNaN(vek)) return
+    if (mesacna <= 0 || roky <= 0) return
 
 // Korektor podľa veku
     let rizikoPoupravene = riziko
@@ -127,13 +129,21 @@ function vypocitaj() {
 // eToro - 1.5% konverzia jednorazovo pri každom vklade
     const fveToro = vypocitajFV(mesacna * (1 - 0.015), roky, vynosZaklad)
 
+// Trading 212 - bez poplatkov
+    const fvT212 = vypocitajFV(mesacna, roky, vynosZaklad)
+
 // Trade Republic - 1€/mes fixný poplatok
-    const fvTR = vypocitajFV(mesacna - 1, roky, vynosZaklad)
+    const fvTR = vypocitajFV(Math.max(1, mesacna - 1), roky, vynosZaklad)
+
+// DEGIRO - 1€ + 0,038% za transakciu
+    const fvDegiro = vypocitajFV(Math.max(1, mesacna - 1 - mesacna * 0.00038), roky, vynosZaklad)
 
     const nakladyXTB = 0
+    const nakladyT212 = 0
+    const nakladyDegiro = Math.round(fvXTB - fvDegiro)
     const nakladyPortu = Math.round(fvXTB - fvPortu)
     const nakladyeToro = Math.round(fvXTB - fveToro)
-    const nakladyTR = roky * 12
+    const nakladyTR = Math.round(fvXTB - fvTR)
 
     document.getElementById('brokeri').innerHTML = `
     <div class="table-responsive">
@@ -142,10 +152,10 @@ function vypocitaj() {
             <tr>
                 <th>Broker</th>
                 <th>Poplatky ETF</th>
-                <th>Dostupnosť</th>
-                <th>Jazyk</th>
+                <th class="hide-mobile">Dostupnosť</th>
+                <th class="hide-mobile">Jazyk</th>
                 <th>Náklady za ${roky} rokov</th>
-                <th>Zostatok (nominálne)</th>
+                <th class="hide-mobile">Zostatok (nominálne)</th>
                 <th></th>
             </tr>
         </thead>
@@ -153,37 +163,55 @@ function vypocitaj() {
             <tr class="table-success">
                 <td><strong>XTB</strong> ⭐</td>
                 <td>0% do 100k€/mes</td>
-                <td>Celá EÚ</td>
-                <td>SK/CZ/PL/DE</td>
+                <td class="hide-mobile">Celá EÚ</td>
+                <td class="hide-mobile">SK/CZ/PL/DE</td>
                 <td class="text-success fw-bold">${formatEur(nakladyXTB)}</td>
-                <td class="fw-bold">${formatEur(fvXTB)}</td>
+                <td class="hide-mobile fw-bold">${formatEur(fvXTB)}</td>
                 <td><a href="https://www.xtb.com/sk" target="_blank" class="btn btn-success btn-sm">Otvoriť účet</a></td>
+            </tr>
+            <tr class="table-success">
+                <td><strong>Trading 212</strong> ⭐</td>
+                <td>0%</td>
+                <td class="hide-mobile">Celá EÚ</td>
+                <td class="hide-mobile">SK/EN</td>
+                <td class="text-success fw-bold">${formatEur(nakladyT212)}</td>
+                <td class="hide-mobile fw-bold">${formatEur(fvT212)}</td>
+                <td><a href="https://www.trading212.com" target="_blank" class="btn btn-success btn-sm">Otvoriť účet</a></td>
             </tr>
             <tr>
                 <td><strong>Trade Republic</strong></td>
                 <td>1€/transakcia</td>
-                <td>18 krajín EÚ</td>
-                <td>SK/DE/FR</td>
+                <td class="hide-mobile">18 krajín EÚ</td>
+                <td class="hide-mobile">SK/DE/FR</td>
                 <td class="text-warning fw-bold">-${formatEur(nakladyTR)}</td>
-                <td class="fw-bold">${formatEur(fvTR)}</td>
+                <td class="hide-mobile fw-bold">${formatEur(fvTR)}</td>
                 <td><a href="https://www.traderepublic.com" target="_blank" class="btn btn-outline-primary btn-sm">Otvoriť účet</a></td>
+            </tr>
+            <tr>
+                <td><strong>DEGIRO</strong></td>
+                <td>1€ + 0,038%</td>
+                <td class="hide-mobile">Celá EÚ</td>
+                <td class="hide-mobile">SK/EN</td>
+                <td class="text-warning fw-bold">-${formatEur(nakladyDegiro)}</td>
+                <td class="hide-mobile fw-bold">${formatEur(fvDegiro)}</td>
+                <td><a href="https://www.degiro.sk" target="_blank" class="btn btn-outline-primary btn-sm">Otvoriť účet</a></td>
             </tr>
             <tr>
                 <td><strong>eToro</strong></td>
                 <td>0% (1.5% konverzia)</td>
-                <td>Celá EÚ</td>
-                <td>EN</td>
+                <td class="hide-mobile">Celá EÚ</td>
+                <td class="hide-mobile">EN</td>
                 <td class="text-warning fw-bold">-${formatEur(nakladyeToro)}</td>
-                <td class="fw-bold">${formatEur(fveToro)}</td>
+                <td class="hide-mobile fw-bold">${formatEur(fveToro)}</td>
                 <td><a href="https://www.etoro.com" target="_blank" class="btn btn-outline-primary btn-sm">Otvoriť účet</a></td>
             </tr>
             <tr>
                 <td><strong>Portu</strong></td>
                 <td>1% ročne</td>
-                <td>SK/CZ</td>
-                <td>SK/CZ</td>
+                <td class="hide-mobile">SK/CZ</td>
+                <td class="hide-mobile">SK/CZ</td>
                 <td class="text-danger fw-bold">-${formatEur(nakladyPortu)}</td>
-                <td class="fw-bold">${formatEur(fvPortu)}</td>
+                <td class="hide-mobile fw-bold">${formatEur(fvPortu)}</td>
                 <td><a href="https://www.portu.sk" target="_blank" class="btn btn-outline-primary btn-sm">Otvoriť účet</a></td>
             </tr>
         </tbody>
@@ -197,10 +225,6 @@ function vypocitaj() {
     // Graf
     vykreslGraf(mesacna, roky, inflacia, rizikoPoupravene)
 
-    // Zobraz výsledky
-    const vysledky = document.getElementById('vysledky')
-    vysledky.style.display = 'flex'
-    vysledky.scrollIntoView({ behavior: 'smooth' })
 }
 
 // Graf
@@ -212,6 +236,7 @@ function vykreslGraf(mesacna, roky, inflacia, riziko) {
     const dataSp500 = []
     const dataWorld = []
     const dataReal = []
+    const dataDlhopisy = []
     const dataVlozene = []
 
     const vynosRealne = riziko === 'agresivny' ? 0.14 : riziko === 'vyvazeny' ? 0.10 : 0.07
@@ -222,6 +247,7 @@ function vykreslGraf(mesacna, roky, inflacia, riziko) {
         dataNasdaq.push(Math.round(vypocitajFV(mesacna, r, 0.14)))
         dataSp500.push(Math.round(vypocitajFV(mesacna, r, 0.10)))
         dataWorld.push(Math.round(vypocitajFV(mesacna, r, 0.07)))
+        dataDlhopisy.push(Math.round(vypocitajFV(mesacna, r, 0.03)))
         dataReal.push(Math.round(realnaHodnota(vypocitajFV(mesacna, r, vynosRealne), inflacia, r)))
         dataVlozene.push(Math.round(mesacna * 12 * r))
     }
@@ -234,27 +260,36 @@ function vykreslGraf(mesacna, roky, inflacia, riziko) {
         data: {
             labels,
             datasets: [
-                { label: 'NASDAQ 100', data: dataNasdaq, borderColor: '#0d6efd', tension: 0.4, fill: false },
-                { label: 'S&P 500', data: dataSp500, borderColor: '#198754', tension: 0.4, fill: false },
-                { label: 'MSCI World', data: dataWorld, borderColor: '#ffc107', tension: 0.4, fill: false },
-                { label: labelRealne, data: dataReal, borderColor: '#198754', borderDash: [5,5], tension: 0.4, fill: false },
-                { label: 'Vložené', data: dataVlozene, borderColor: '#6c757d', tension: 0.4, fill: false }
+                { label: 'NASDAQ 100', data: dataNasdaq, borderColor: '#0d6efd', backgroundColor: 'rgba(13,110,253,0.08)', borderWidth: 2.5, pointRadius: 0, tension: 0.4, fill: false },
+                { label: 'S&P 500', data: dataSp500, borderColor: '#198754', backgroundColor: 'rgba(25,135,84,0.08)', borderWidth: 2.5, pointRadius: 0, tension: 0.4, fill: false },
+                { label: 'MSCI World', data: dataWorld, borderColor: '#e6a817', backgroundColor: 'rgba(255,193,7,0.08)', borderWidth: 2.5, pointRadius: 0, tension: 0.4, fill: false },
+                { label: 'Dlhopisy (3%)', data: dataDlhopisy, borderColor: '#20c997', backgroundColor: 'rgba(32,201,151,0.08)', borderWidth: 2, pointRadius: 0, tension: 0.4, fill: false },
+                { label: labelRealne, data: dataReal, borderColor: '#6f42c1', borderDash: [6, 4], borderWidth: 2, pointRadius: 0, tension: 0.4, fill: false },
+                { label: 'Vložené', data: dataVlozene, borderColor: '#6c757d', backgroundColor: 'rgba(108,117,125,0.08)', borderWidth: 1.5, pointRadius: 0, tension: 0, fill: true }
             ]
         },
         options: {
             responsive: true,
+            interaction: { mode: 'index', intersect: false },
             plugins: {
-                legend: { position: 'bottom' },
+                legend: { position: 'bottom', labels: { boxWidth: 20, padding: 14, font: { size: 12 } } },
                 tooltip: {
                     callbacks: {
-                        label: ctx => `${ctx.dataset.label}: ${formatEur(ctx.raw)}`
+                        label: ctx => ` ${ctx.dataset.label}: ${formatEur(ctx.parsed.y)}`
                     }
                 }
             },
             scales: {
+                x: { grid: { display: false }, ticks: { maxTicksLimit: 10, font: { size: 11 } } },
                 y: {
+                    grid: { color: 'rgba(0,0,0,0.06)' },
                     ticks: {
-                        callback: val => formatEur(val)
+                        font: { size: 11 },
+                        callback: val => {
+                            if (val >= 1_000_000) return (val / 1_000_000).toFixed(1) + ' M€'
+                            if (val >= 1_000) return (val / 1_000).toFixed(0) + ' k€'
+                            return val + ' €'
+                        }
                     }
                 }
             }
@@ -270,3 +305,28 @@ function formatEur(hodnota) {
         maximumFractionDigits: 0
     }).format(hodnota)
 }
+
+// Live update labielov sliderov
+function aktualizujLabely() {
+    const mesacna = parseFloat(document.getElementById('mesacnaInvesticia').value)
+    const roky = parseInt(document.getElementById('pocetRokov').value)
+    const vek = parseInt(document.getElementById('vek').value)
+    const inflacia = parseFloat(document.getElementById('inflacia').value)
+
+    document.getElementById('labelMesacna').textContent = formatEur(mesacna)
+    document.getElementById('labelRoky').textContent = roky + (roky === 1 ? ' rok' : roky < 5 ? ' roky' : ' rokov')
+    document.getElementById('labelVek').textContent = vek + ' rokov'
+    document.getElementById('labelInflacia').textContent = inflacia.toFixed(2).replace('.', ',') + ' %'
+}
+
+// Event listenery — live výpočet
+;['mesacnaInvesticia', 'pocetRokov', 'vek', 'inflacia', 'riziko'].forEach(id => {
+    document.getElementById(id).addEventListener('input', () => {
+        aktualizujLabely()
+        vypocitaj()
+    })
+})
+
+// Inicializácia pri načítaní stránky
+aktualizujLabely()
+vypocitaj()
