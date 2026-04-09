@@ -211,7 +211,7 @@ function vypocitaj() {
         </thead>
         <tbody>
             <tr class="table-success">
-                <td><strong class="broker-tip" data-broker="xtb">XTB ⭐ <span class="broker-expand-hint">ℹ️</span></strong></td>
+                <td><strong class="broker-tip" data-broker="xtb">XTB</strong> ⭐</td>
                 <td>0% do 100k€/mes</td>
                 <td class="hide-mobile">Celá EÚ</td>
                 <td class="hide-mobile">SK/CZ/PL/DE</td>
@@ -219,9 +219,8 @@ function vypocitaj() {
                 <td class="hide-mobile fw-bold">${formatEur(fvXTB)}</td>
                 <td><a href="https://www.xtb.com/sk" target="_blank" class="btn btn-success btn-sm">Otvoriť účet</a></td>
             </tr>
-            <tr class="broker-detail d-none"><td colspan="7" class="broker-detail-cell">${brokerTooltip('xtb')}</td></tr>
             <tr class="table-success">
-                <td><strong class="broker-tip" data-broker="t212">Trading 212 ⭐ <span class="broker-expand-hint">ℹ️</span></strong></td>
+                <td><strong class="broker-tip" data-broker="t212">Trading 212</strong> ⭐</td>
                 <td>0%</td>
                 <td class="hide-mobile">Celá EÚ</td>
                 <td class="hide-mobile">SK/EN</td>
@@ -229,9 +228,8 @@ function vypocitaj() {
                 <td class="hide-mobile fw-bold">${formatEur(fvT212)}</td>
                 <td><a href="https://www.trading212.com" target="_blank" class="btn btn-success btn-sm">Otvoriť účet</a></td>
             </tr>
-            <tr class="broker-detail d-none"><td colspan="7" class="broker-detail-cell">${brokerTooltip('t212')}</td></tr>
             <tr>
-                <td><strong class="broker-tip" data-broker="tr">Trade Republic <span class="broker-expand-hint">ℹ️</span></strong></td>
+                <td><strong class="broker-tip" data-broker="tr">Trade Republic</strong></td>
                 <td>1€/transakcia</td>
                 <td class="hide-mobile">18 krajín EÚ</td>
                 <td class="hide-mobile">SK/DE/FR</td>
@@ -239,9 +237,8 @@ function vypocitaj() {
                 <td class="hide-mobile fw-bold">${formatEur(fvTR)}</td>
                 <td><a href="https://www.traderepublic.com" target="_blank" class="btn btn-outline-primary btn-sm">Otvoriť účet</a></td>
             </tr>
-            <tr class="broker-detail d-none"><td colspan="7" class="broker-detail-cell">${brokerTooltip('tr')}</td></tr>
             <tr>
-                <td><strong class="broker-tip" data-broker="degiro">DEGIRO <span class="broker-expand-hint">ℹ️</span></strong></td>
+                <td><strong class="broker-tip" data-broker="degiro">DEGIRO</strong></td>
                 <td>1€ + 0,038%</td>
                 <td class="hide-mobile">Celá EÚ</td>
                 <td class="hide-mobile">SK/EN</td>
@@ -249,9 +246,8 @@ function vypocitaj() {
                 <td class="hide-mobile fw-bold">${formatEur(fvDegiro)}</td>
                 <td><a href="https://www.degiro.sk" target="_blank" class="btn btn-outline-primary btn-sm">Otvoriť účet</a></td>
             </tr>
-            <tr class="broker-detail d-none"><td colspan="7" class="broker-detail-cell">${brokerTooltip('degiro')}</td></tr>
             <tr>
-                <td><strong class="broker-tip" data-broker="etoro">eToro <span class="broker-expand-hint">ℹ️</span></strong></td>
+                <td><strong class="broker-tip" data-broker="etoro">eToro</strong></td>
                 <td>0% (1.5% konverzia)</td>
                 <td class="hide-mobile">Celá EÚ</td>
                 <td class="hide-mobile">EN</td>
@@ -259,9 +255,8 @@ function vypocitaj() {
                 <td class="hide-mobile fw-bold">${formatEur(fveToro)}</td>
                 <td><a href="https://www.etoro.com" target="_blank" class="btn btn-outline-primary btn-sm">Otvoriť účet</a></td>
             </tr>
-            <tr class="broker-detail d-none"><td colspan="7" class="broker-detail-cell">${brokerTooltip('etoro')}</td></tr>
             <tr>
-                <td><strong class="broker-tip" data-broker="portu">Portu <span class="broker-expand-hint">ℹ️</span></strong></td>
+                <td><strong class="broker-tip" data-broker="portu">Portu</strong></td>
                 <td>1% ročne</td>
                 <td class="hide-mobile">SK/CZ</td>
                 <td class="hide-mobile">SK/CZ</td>
@@ -269,7 +264,6 @@ function vypocitaj() {
                 <td class="hide-mobile fw-bold">${formatEur(fvPortu)}</td>
                 <td><a href="https://www.portu.sk" target="_blank" class="btn btn-outline-primary btn-sm">Otvoriť účet</a></td>
             </tr>
-            <tr class="broker-detail d-none"><td colspan="7" class="broker-detail-cell">${brokerTooltip('portu')}</td></tr>
         </tbody>
     </table>
     </div>
@@ -385,16 +379,6 @@ function aktualizujLabely() {
 
 // Custom broker tooltip — event delegácia na statickom kontajneri
 const brokerTooltipEl = document.getElementById('broker-tooltip')
-
-// Tap/click — rozbalenie detail riadku (mobile + desktop)
-document.getElementById('brokeri').addEventListener('click', e => {
-    const tip = e.target.closest('.broker-tip')
-    if (!tip) return
-    const detailRow = tip.closest('tr').nextElementSibling
-    if (detailRow && detailRow.classList.contains('broker-detail')) {
-        detailRow.classList.toggle('d-none')
-    }
-})
 
 document.getElementById('brokeri').addEventListener('mouseover', e => {
     const tip = e.target.closest('.broker-tip')
