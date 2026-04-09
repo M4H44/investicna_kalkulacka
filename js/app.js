@@ -1,3 +1,18 @@
+// Info o brokeroch — bezpečnosť, regulácia, ochrana
+const brokerMeta = {
+    xtb:  { regulacia: 'KNF (Poľsko), licencia v EÚ', ochrana: 'ICF do 20 000 €', poznamka: 'Aktíva klientov oddelené od majetku XTB. ETF sú cenné papiere vo tvojom vlastníctve — XTB je len sprostredkovateľ. V prípade bankrotu brokera sa ETF vrátia tebe.' },
+    t212: { regulacia: 'FCA (UK), CySEC (Cyprus)', ochrana: 'ICF do 20 000 €', poznamka: 'ETF spravuje nezávislý depozitár (Interactive Brokers UK). Tvoje aktíva nie sú majetkom Trading 212. Sprostredkovateľ, nie správca.' },
+    degiro: { regulacia: 'AFM / DNB (Holandsko)', ochrana: 'ICF do 20 000 €', poznamka: 'ETF sú držané v samostatnej právnickej entite Stichting DEGIRO — oddelene od majetku brokera. Tvoje cenné papiere sú chránené aj pri bankrote DEGIRO.' },
+    tr:   { regulacia: 'BaFin (Nemecko) — banková licencia', ochrana: 'Vklady do 100 000 € (bankový depozit) + ICF do 20 000 €', poznamka: 'Trade Republic je nemecká banka. ETF ako cenné papiere sú oddelené od súvahy banky a patria tebe, nie banke.' },
+    etoro: { regulacia: 'CySEC (Cyprus), FCA (UK)', ochrana: 'ICF do 20 000 €', poznamka: 'Klientske aktíva sú oddelené od majetku eToro. ETF sú vo vlastníctve klienta. eToro je sprostredkovateľ — vydavateľom ETF je iShares, Vanguard a pod.' },
+    portu: { regulacia: 'ČNB (Česká republika)', ochrana: 'ICF do 20 000 €', poznamka: 'Aktíva klientov sú uložené u depozitára (Raiffeisen Bank). Portu spravuje portfólio, ale tvoje ETF sú majetkom teba, nie Portu.' }
+}
+
+function brokerTooltip(klic) {
+    const b = brokerMeta[klic]
+    return `<strong>Regulácia:</strong> ${b.regulacia}<br><strong>Ochrana:</strong> ${b.ochrana}<br><br>${b.poznamka}`
+}
+
 // Historické výnosy indexov
 const indexy = {
     nasdaq:  { nazov: 'NASDAQ 100',  vynos: 0.14, farba: '#0d6efd' },
@@ -147,7 +162,10 @@ function vypocitaj() {
 
     // Inicializuj tooltips po každom renderi
     document.querySelectorAll('.etf-tooltip-trigger').forEach(el => {
-        new bootstrap.Tooltip(el)
+        new bootstrap.Tooltip(el, { trigger: 'hover focus', html: true, sanitize: false })
+    })
+    document.querySelectorAll('.broker-tip').forEach(el => {
+        new bootstrap.Tooltip(el, { trigger: 'hover focus', html: true, sanitize: false, placement: 'right', title: brokerTooltip(el.dataset.broker) })
     })
 
     // Brokeri
@@ -196,7 +214,7 @@ function vypocitaj() {
         </thead>
         <tbody>
             <tr class="table-success">
-                <td><strong>XTB</strong> ⭐</td>
+                <td><strong class="broker-tip" data-broker="xtb">XTB</strong> ⭐</td>
                 <td>0% do 100k€/mes</td>
                 <td class="hide-mobile">Celá EÚ</td>
                 <td class="hide-mobile">SK/CZ/PL/DE</td>
@@ -205,7 +223,7 @@ function vypocitaj() {
                 <td><a href="https://www.xtb.com/sk" target="_blank" class="btn btn-success btn-sm">Otvoriť účet</a></td>
             </tr>
             <tr class="table-success">
-                <td><strong>Trading 212</strong> ⭐</td>
+                <td><strong class="broker-tip" data-broker="t212">Trading 212</strong> ⭐</td>
                 <td>0%</td>
                 <td class="hide-mobile">Celá EÚ</td>
                 <td class="hide-mobile">SK/EN</td>
@@ -214,7 +232,7 @@ function vypocitaj() {
                 <td><a href="https://www.trading212.com" target="_blank" class="btn btn-success btn-sm">Otvoriť účet</a></td>
             </tr>
             <tr>
-                <td><strong>Trade Republic</strong></td>
+                <td><strong class="broker-tip" data-broker="tr">Trade Republic</strong></td>
                 <td>1€/transakcia</td>
                 <td class="hide-mobile">18 krajín EÚ</td>
                 <td class="hide-mobile">SK/DE/FR</td>
@@ -223,7 +241,7 @@ function vypocitaj() {
                 <td><a href="https://www.traderepublic.com" target="_blank" class="btn btn-outline-primary btn-sm">Otvoriť účet</a></td>
             </tr>
             <tr>
-                <td><strong>DEGIRO</strong></td>
+                <td><strong class="broker-tip" data-broker="degiro">DEGIRO</strong></td>
                 <td>1€ + 0,038%</td>
                 <td class="hide-mobile">Celá EÚ</td>
                 <td class="hide-mobile">SK/EN</td>
@@ -232,7 +250,7 @@ function vypocitaj() {
                 <td><a href="https://www.degiro.sk" target="_blank" class="btn btn-outline-primary btn-sm">Otvoriť účet</a></td>
             </tr>
             <tr>
-                <td><strong>eToro</strong></td>
+                <td><strong class="broker-tip" data-broker="etoro">eToro</strong></td>
                 <td>0% (1.5% konverzia)</td>
                 <td class="hide-mobile">Celá EÚ</td>
                 <td class="hide-mobile">EN</td>
@@ -241,7 +259,7 @@ function vypocitaj() {
                 <td><a href="https://www.etoro.com" target="_blank" class="btn btn-outline-primary btn-sm">Otvoriť účet</a></td>
             </tr>
             <tr>
-                <td><strong>Portu</strong></td>
+                <td><strong class="broker-tip" data-broker="portu">Portu</strong></td>
                 <td>1% ročne</td>
                 <td class="hide-mobile">SK/CZ</td>
                 <td class="hide-mobile">SK/CZ</td>
@@ -360,6 +378,12 @@ function aktualizujLabely() {
         aktualizujLabely()
         vypocitaj()
     })
+})
+
+// Inicializácia footer broker tooltipov
+document.querySelectorAll('.footer-broker-tip').forEach(el => {
+    const klic = el.dataset.broker
+    new bootstrap.Tooltip(el, { trigger: 'hover focus', html: true, title: brokerTooltip(klic) })
 })
 
 // Inicializácia pri načítaní stránky

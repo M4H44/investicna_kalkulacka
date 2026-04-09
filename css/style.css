@@ -86,6 +86,7 @@ h1 {
     border-bottom: 1px dashed #198754;
 }
 
+
 /* Alert odporúčanie */
 .alert-success {
     background: linear-gradient(135deg, #d1fae5, #ecfdf5);
@@ -122,20 +123,39 @@ h1 {
     .hide-mobile { display: none; }
 }
 /* Footer */
-footer {
-    background: linear-gradient(135deg, #1a1a2e, #16213e) !important;
+.footer-main {
+    background: linear-gradient(135deg, #0f0f1a, #1a1a2e);
+    border-top: 1px solid rgba(255,255,255,0.07);
 }
 
-footer h6 {
-    font-size: 1rem;
-    margin-bottom: 8px;
+.footer-text {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.82rem;
+    line-height: 1.7;
 }
 
-footer hr {
-    opacity: 0.2;
+.footer-links {
+    font-size: 0.85rem;
 }
 
-footer .text-light {
-    opacity: 0.8;
-    line-height: 1.6;
+.footer-links a {
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+.footer-divider {
+    border-color: rgba(255,255,255,0.08);
+    margin: 1.5rem 0 1rem;
+}
+
+.footer-copy {
+    color: rgba(255,255,255,0.3);
+    font-size: 0.75rem;
 }
