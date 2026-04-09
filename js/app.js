@@ -114,56 +114,75 @@ function vypocitaj() {
 `
 
     // Brokeri
+    // Výpočet nákladov brokerov
+    const fvXTB = vypocitajFV(mesacna, roky, 0.10)
+    const fvPortu = vypocitajFV(mesacna * (1 - 0.01/12), roky, 0.10) // 1% ročne
+    const fveToro = vypocitajFV(mesacna * (1 - 0.015/12), roky, 0.10) // 1.5% konverzia
+    const fvTR = fvXTB - (roky * 12) // 1€ za transakciu mesačne
+
+    const nakladyXTB = 0
+    const nakladyPortu = Math.round(fvXTB - fvPortu)
+    const nakladyeToro = Math.round(fvXTB - fveToro)
+    const nakladyTR = roky * 12
+
     document.getElementById('brokeri').innerHTML = `
-        <div class="table-responsive">
-        <table class="table table-hover text-center">
-            <thead class="table-dark">
-                <tr>
-                    <th>Broker</th>
-                    <th>Poplatky ETF</th>
-                    <th>Dostupnosť</th>
-                    <th>Jazyk</th>
-                    <th>Vhodný pre</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="table-success">
-                    <td><strong>XTB</strong> ⭐</td>
-                    <td>0% do 100k€/mes</td>
-                    <td>Celá EÚ</td>
-                    <td>SK/CZ/PL/DE</td>
-                    <td>Všetci investori</td>
-                    <td><a href="https://www.xtb.com/sk" target="_blank" class="btn btn-success btn-sm">Otvoriť účet</a></td>
-                </tr>
-                <tr>
-                    <td><strong>eToro</strong></td>
-                    <td>0% (1.5% konverzia)</td>
-                    <td>Celá EÚ</td>
-                    <td>EN</td>
-                    <td>Social trading</td>
-                    <td><a href="https://www.etoro.com" target="_blank" class="btn btn-outline-primary btn-sm">Otvoriť účet</a></td>
-                </tr>
-                <tr>
-                    <td><strong>Trade Republic</strong></td>
-                    <td>1€/transakcia</td>
-                    <td>18 krajín EÚ</td>
-                    <td>SK/DE/FR</td>
-                    <td>Začiatočníci</td>
-                    <td><a href="https://www.traderepublic.com" target="_blank" class="btn btn-outline-primary btn-sm">Otvoriť účet</a></td>
-                </tr>
-                <tr>
-                    <td><strong>Portu</strong></td>
-                    <td>1% ročne</td>
-                    <td>SK/CZ</td>
-                    <td>SK/CZ</td>
-                    <td>Úplní začiatočníci</td>
-                    <td><a href="https://www.portu.sk" target="_blank" class="btn btn-outline-primary btn-sm">Otvoriť účet</a></td>
-                </tr>
-            </tbody>
-        </table>
-        </div>
-    `
+    <div class="table-responsive">
+    <table class="table table-hover text-center align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Broker</th>
+                <th>Poplatky ETF</th>
+                <th>Dostupnosť</th>
+                <th>Jazyk</th>
+                <th>Náklady za ${roky} rokov</th>
+                <th>Zostatok</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-success">
+                <td><strong>XTB</strong> ⭐</td>
+                <td>0% do 100k€/mes</td>
+                <td>Celá EÚ</td>
+                <td>SK/CZ/PL/DE</td>
+                <td class="text-success fw-bold">${formatEur(nakladyXTB)}</td>
+                <td class="fw-bold">${formatEur(fvXTB)}</td>
+                <td><a href="https://www.xtb.com/sk" target="_blank" class="btn btn-success btn-sm">Otvoriť účet</a></td>
+            </tr>
+            <tr>
+                <td><strong>Trade Republic</strong></td>
+                <td>1€/transakcia</td>
+                <td>18 krajín EÚ</td>
+                <td>SK/DE/FR</td>
+                <td class="text-warning fw-bold">-${formatEur(nakladyTR)}</td>
+                <td class="fw-bold">${formatEur(fvTR)}</td>
+                <td><a href="https://www.traderepublic.com" target="_blank" class="btn btn-outline-primary btn-sm">Otvoriť účet</a></td>
+            </tr>
+            <tr>
+                <td><strong>eToro</strong></td>
+                <td>0% (1.5% konverzia)</td>
+                <td>Celá EÚ</td>
+                <td>EN</td>
+                <td class="text-warning fw-bold">-${formatEur(nakladyeToro)}</td>
+                <td class="fw-bold">${formatEur(fveToro)}</td>
+                <td><a href="https://www.etoro.com" target="_blank" class="btn btn-outline-primary btn-sm">Otvoriť účet</a></td>
+            </tr>
+            <tr>
+                <td><strong>Portu</strong></td>
+                <td>1% ročne</td>
+                <td>SK/CZ</td>
+                <td>SK/CZ</td>
+                <td class="text-danger fw-bold">-${formatEur(nakladyPortu)}</td>
+                <td class="fw-bold">${formatEur(fvPortu)}</td>
+                <td><a href="https://www.portu.sk" target="_blank" class="btn btn-outline-primary btn-sm">Otvoriť účet</a></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    <p class="text-muted small text-center mt-2">
+        * Náklady vypočítané pri ${formatEur(mesacna)}/mes počas ${roky} rokov pri výnose S&P 500 (~10% p.a.)
+    </p>
+`
 
     // Graf
     vykreslGraf(mesacna, roky, inflacia)
