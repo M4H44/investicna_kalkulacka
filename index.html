@@ -26,24 +26,28 @@
             <div class="card shadow-sm">
                 <div class="card-body">
 
-                    <div class="mb-3">
-                        <label class="form-label fw-bold">Mesačná investícia (€)</label>
-                        <input type="number" id="mesacnaInvesticia" class="form-control" value="100" min="1">
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Mesačná investícia: <span id="labelMesacna" class="text-success">100 €</span></label>
+                        <input type="range" id="mesacnaInvesticia" class="form-range" value="100" min="10" max="2000" step="10">
+                        <div class="d-flex justify-content-between text-muted small"><span>10 €</span><span>2 000 €</span></div>
                     </div>
 
-                    <div class="mb-3">
-                        <label class="form-label fw-bold">Počet rokov</label>
-                        <input type="number" id="pocetRokov" class="form-control" value="20" min="1" max="50">
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Počet rokov: <span id="labelRoky" class="text-success">20 rokov</span></label>
+                        <input type="range" id="pocetRokov" class="form-range" value="20" min="1" max="50" step="1">
+                        <div class="d-flex justify-content-between text-muted small"><span>1 rok</span><span>50 rokov</span></div>
                     </div>
 
-                    <div class="mb-3">
-                        <label class="form-label fw-bold">Váš vek</label>
-                        <input type="number" id="vek" class="form-control" value="30" min="18" max="70">
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Váš vek: <span id="labelVek" class="text-success">30 rokov</span></label>
+                        <input type="range" id="vek" class="form-range" value="30" min="18" max="70" step="1">
+                        <div class="d-flex justify-content-between text-muted small"><span>18</span><span>70</span></div>
                     </div>
 
-                    <div class="mb-3">
-                        <label class="form-label fw-bold">Ročná inflácia (%)</label>
-                        <input type="number" id="inflacia" class="form-control" value="3" min="0" max="20">
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Ročná inflácia: <span id="labelInflacia" class="text-success">2,25 %</span></label>
+                        <input type="range" id="inflacia" class="form-range" value="2.25" min="0" max="10" step="0.25">
+                        <div class="d-flex justify-content-between text-muted small"><span>0 %</span><span>10 %</span></div>
                     </div>
 
                     <div class="mb-3">
@@ -55,17 +59,6 @@
                         </select>
                     </div>
 
-                    <div class="mb-3">
-                        <label class="form-label fw-bold">Investičný horizont</label>
-                        <select id="horizont" class="form-select">
-                            <option value="kratky">Krátkodobý (do 5 rokov)</option>
-                            <option value="dlhy" selected>Dlhodobý (nad 5 rokov)</option>
-                        </select>
-                    </div>
-
-                    <button onclick="vypocitaj()" class="btn btn-success w-100 fw-bold fs-5">
-                        Vypočítať 🚀
-                    </button>
 
                 </div>
             </div>
@@ -73,7 +66,7 @@
     </div>
 
     <!-- VÝSLEDKY -->
-    <div id="vysledky" class="row justify-content-center mt-5" style="display:none">
+    <div id="vysledky" class="row justify-content-center mt-5">
         <div class="col-md-10">
 
             <!-- TABUĽKA -->
@@ -111,40 +104,59 @@
         </div>
     </div>
 </div>
-<footer class="bg-dark text-light mt-5 py-5">
+<footer class="footer-main mt-5 py-5">
     <div class="container">
-        <div class="row mb-4">
+        <div class="row mb-4 g-4">
+            <!-- O projekte -->
             <div class="col-md-4">
-                <h5 class="fw-bold mb-3">📈 Investičná kalkulačka</h5>
-                <p class="text-light small">
-                    Bezplatný nástroj pre dlhodobých investorov v EÚ.
-                    Pomáhame ľuďom pochopiť silu zloženého úročenia.
+                <h5 class="fw-bold mb-3 text-white">📈 Investičná kalkulačka</h5>
+                <p class="footer-text">
+                    Bezplatný vzdelávací nástroj pre dlhodobých investorov v EÚ.
+                    Pomáhame pochopiť silu zloženého úročenia a orientovať sa vo svete ETF.
+                </p>
+                <p class="footer-text">
+                    Zdroje dát: MSCI, S&amp;P Global, NASDAQ, ECB.
                 </p>
             </div>
-            <div class="col-md-4">
-                <h6 class="fw-bold mb-3">🔗 Brokeri</h6>
-                <ul class="list-unstyled small">
-                    <li><a href="https://www.xtb.com/sk" target="_blank" class="text-light text-decoration-none">→ XTB</a></li>
-                    <li><a href="https://www.etoro.com" target="_blank" class="text-light text-decoration-none">→ eToro</a></li>
-                    <li><a href="https://www.traderepublic.com" target="_blank" class="text-light text-decoration-none">→ Trade Republic</a></li>
-                    <li><a href="https://www.portu.sk" target="_blank" class="text-light text-decoration-none">→ Portu</a></li>
+
+            <!-- Brokeri -->
+            <div class="col-md-3">
+                <h6 class="fw-bold mb-3 text-white">🔗 Brokeri</h6>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="https://www.xtb.com/sk" target="_blank" rel="noopener" class="footer-broker-tip" data-bs-toggle="tooltip" data-bs-placement="right" data-broker="xtb">→ XTB</a></li>
+                    <li><a href="https://www.trading212.com" target="_blank" rel="noopener" class="footer-broker-tip" data-bs-toggle="tooltip" data-bs-placement="right" data-broker="t212">→ Trading 212</a></li>
+                    <li><a href="https://www.degiro.sk" target="_blank" rel="noopener" class="footer-broker-tip" data-bs-toggle="tooltip" data-bs-placement="right" data-broker="degiro">→ DEGIRO</a></li>
+                    <li><a href="https://www.traderepublic.com" target="_blank" rel="noopener" class="footer-broker-tip" data-bs-toggle="tooltip" data-bs-placement="right" data-broker="tr">→ Trade Republic</a></li>
+                    <li><a href="https://www.etoro.com" target="_blank" rel="noopener" class="footer-broker-tip" data-bs-toggle="tooltip" data-bs-placement="right" data-broker="etoro">→ eToro</a></li>
+                    <li><a href="https://www.portu.sk" target="_blank" rel="noopener" class="footer-broker-tip" data-bs-toggle="tooltip" data-bs-placement="right" data-broker="portu">→ Portu</a></li>
                 </ul>
             </div>
-            <div class="col-md-4">
-                <h6 class="fw-bold mb-3">⚠️ Disclaimer</h6>
-                <p class="text-light small">
-                    Informácie sú len vzdelávacie. Historické výnosy
-                    nezaručujú budúce výsledky. Investovanie nesie riziko straty.
+
+            <!-- Právne upozornenie -->
+            <div class="col-md-5">
+                <h6 class="fw-bold mb-3 text-white">⚖️ Právne upozornenie</h6>
+                <p class="footer-text">
+                    Táto stránka slúži <strong class="text-white">výlučne na vzdelávacie účely</strong> a nepredstavuje investičné poradenstvo v zmysle zákona č. 566/2001 Z. z. o cenných papieroch ani smernice MiFID II.
+                </p>
+                <p class="footer-text">
+                    Historické výnosy <strong class="text-white">nezaručujú</strong> budúce výsledky. Hodnota investície môže klesať aj rásť. Investovanie je spojené s rizikom čiastočnej alebo úplnej straty vloženého kapitálu.
+                </p>
+                <p class="footer-text mb-0">
+                    Pred akýmkoľvek investičným rozhodnutím odporúčame konzultáciu s licencovaným finančným poradcom registrovaným v NBS.
                 </p>
             </div>
         </div>
-        <hr class="border-secondary">
-        <p class="text-light small text-center mb-0 opacity-50">
-            © 2026 Investičná kalkulačka | Nie sme licencovaní investiční poradcovia
-        </p>
+
+        <hr class="footer-divider">
+
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+            <p class="footer-copy mb-0">© 2026 Investičná kalkulačka — nie sme licencovaní investiční poradcovia</p>
+            <p class="footer-copy mb-0">Nie sme pobočkou ani partnerom žiadneho brokera</p>
+        </div>
     </div>
 </footer>
 
+<div id="broker-tooltip" role="tooltip" aria-hidden="true"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/app.js"></script>
 </body>

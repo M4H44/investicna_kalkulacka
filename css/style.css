@@ -70,14 +70,22 @@ h1 {
     overflow: hidden;
 }
 
-.table thead {
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
+.table thead th {
+    background: linear-gradient(135deg, #1a1a2e, #16213e) !important;
+    color: #fff;
 }
 
 .table-hover tbody tr:hover {
     background: #f0fff4;
     cursor: pointer;
 }
+
+/* ETF tooltip trigger */
+.etf-tooltip-trigger {
+    cursor: help;
+    border-bottom: 1px dashed #198754;
+}
+
 
 /* Alert odporúčanie */
 .alert-success {
@@ -108,26 +116,93 @@ h1 {
     to   { opacity: 1; transform: translateY(0); }
 }
 
+/* Custom broker tooltip */
+#broker-tooltip {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    max-width: 320px;
+    background: #1a1a2e;
+    color: #f0f0f0;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    pointer-events: none;
+}
+
+#broker-tooltip strong {
+    color: #fff;
+}
+
+.broker-tip {
+    cursor: help;
+    border-bottom: 1px dashed #aaa;
+}
+
+.broker-expand-hint {
+    font-size: 0.75rem;
+    opacity: 0.5;
+}
+
+.broker-detail-cell {
+    background: #f8f9fa;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    padding: 10px 16px !important;
+    color: #444;
+}
+
+.broker-detail-cell strong {
+    color: #1a1a2e;
+}
+
+@media (min-width: 769px) {
+    .broker-expand-hint { display: none; }
+}
+
 /* Mobile */
 @media (max-width: 768px) {
     h1 { font-size: 1.8rem; }
     .table { font-size: 0.85rem; }
+    .hide-mobile { display: none; }
 }
 /* Footer */
-footer {
-    background: linear-gradient(135deg, #1a1a2e, #16213e) !important;
+.footer-main {
+    background: linear-gradient(135deg, #0f0f1a, #1a1a2e);
+    border-top: 1px solid rgba(255,255,255,0.07);
 }
 
-footer h6 {
-    font-size: 1rem;
-    margin-bottom: 8px;
+.footer-text {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.82rem;
+    line-height: 1.7;
 }
 
-footer hr {
-    opacity: 0.2;
+.footer-links {
+    font-size: 0.85rem;
 }
 
-footer .text-light {
-    opacity: 0.8;
-    line-height: 1.6;
+.footer-links a {
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+.footer-divider {
+    border-color: rgba(255,255,255,0.08);
+    margin: 1.5rem 0 1rem;
+}
+
+.footer-copy {
+    color: rgba(255,255,255,0.3);
+    font-size: 0.75rem;
 }
