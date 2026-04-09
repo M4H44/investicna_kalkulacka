@@ -9,16 +9,34 @@ const indexy = {
 // Odporúčania ETF podľa profilu
 const etfOdporucania = {
     agresivny: {
-        dlhy:   { etf: 'Invesco EQQQ (NASDAQ 100)', isin: 'IE0032077012', dovod: 'Najvyšší historický výnos ~14% p.a.' },
-        kratky: { etf: 'iShares Core S&P 500 UCITS (CSPX)', isin: 'IE00B5BMR087', dovod: 'Stabilnejší ako NASDAQ pre kratší horizont' }
+        dlhy: [
+            { etf: 'Invesco NASDAQ 100 UCITS ETF (EQQQ)', isin: 'IE0032077012', dovod: 'Najvyšší historický výnos ~14% p.a., TER 0,30%', zlozenie: '100 najväčších nefinančných US tech spoločností — Apple, Microsoft, Nvidia, Amazon...', vynos: '~14% p.a. (1985–2024)' },
+            { etf: 'iShares NASDAQ 100 UCITS ETF (CNDX)', isin: 'IE00B53SZB19', dovod: 'Alternatíva od iShares, rovnaký index, TER 0,33%', zlozenie: 'Rovnaké zloženie ako EQQQ — 100 nefinančných US tech titulov', vynos: '~14% p.a. (1985–2024)' }
+        ],
+        kratky: [
+            { etf: 'iShares Core S&P 500 UCITS ETF (CSPX)', isin: 'IE00B5BMR087', dovod: 'Stabilnejší ako NASDAQ pre kratší horizont, TER 0,07%', zlozenie: '500 najväčších US spoločností naprieč všetkými sektormi', vynos: '~10% p.a. (1957–2024)' },
+            { etf: 'iShares Core MSCI World UCITS ETF (IWDA)', isin: 'IE00B4L5Y983', dovod: 'Globálna diverzifikácia, nižšie riziko, TER 0,20%', zlozenie: '~1 400 spoločností z 23 rozvinutých krajín (US, EU, JP...)', vynos: '~8% p.a. (1970–2024)' }
+        ]
     },
     vyvazeny: {
-        dlhy:   { etf: 'iShares Core S&P 500 UCITS (CSPX)', isin: 'IE00B5BMR087', dovod: 'Dlhodobý výnos ~10% p.a., nižšia volatilita' },
-        kratky: { etf: 'Vanguard FTSE All-World UCITS (VWCE)', isin: 'IE00BK5BQT80', dovod: 'Globálna diverzifikácia, vhodné na 3-5 rokov' }
+        dlhy: [
+            { etf: 'iShares Core S&P 500 UCITS ETF (CSPX)', isin: 'IE00B5BMR087', dovod: 'Dlhodobý výnos ~10% p.a., nižšia volatilita, TER 0,07%', zlozenie: '500 najväčších US spoločností naprieč všetkými sektormi', vynos: '~10% p.a. (1957–2024)' },
+            { etf: 'Vanguard FTSE All-World UCITS ETF (VWCE)', isin: 'IE00BK5BQT80', dovod: 'Širšia globálna diverzifikácia vr. rozvíjajúcich sa trhov, TER 0,22%', zlozenie: '~3 700 spoločností z celého sveta vrátane emerging markets (Čína, India...)', vynos: '~8% p.a. (2000–2024)' }
+        ],
+        kratky: [
+            { etf: 'iShares Core MSCI World UCITS ETF (IWDA)', isin: 'IE00B4L5Y983', dovod: 'Rozvinuté trhy, nižšia volatilita, TER 0,20%', zlozenie: '~1 400 spoločností z 23 rozvinutých krajín (US, EU, JP...)', vynos: '~8% p.a. (1970–2024)' },
+            { etf: 'Vanguard FTSE All-World UCITS ETF (VWCE)', isin: 'IE00BK5BQT80', dovod: 'Maximálna diverzifikácia vr. rozvíjajúcich sa trhov, TER 0,22%', zlozenie: '~3 700 spoločností z celého sveta vrátane emerging markets', vynos: '~8% p.a. (2000–2024)' }
+        ]
     },
     konzervativny: {
-        dlhy:   { etf: 'Vanguard FTSE All-World UCITS (VWCE)', isin: 'IE00BK5BQT80', dovod: 'Globálna diverzifikácia ~7% p.a.' },
-        kratky: { etf: 'iShares Core Euro Govt Bond UCITS', isin: 'IE00B4WXJJ64', dovod: 'Nízke riziko pre krátky horizont' }
+        dlhy: [
+            { etf: 'iShares Core MSCI World UCITS ETF (IWDA)', isin: 'IE00B4L5Y983', dovod: 'Rozvinuté trhy ~8% p.a., nižšie riziko ako S&P 500, TER 0,20%', zlozenie: '~1 400 spoločností z 23 rozvinutých krajín (US, EU, JP...)', vynos: '~8% p.a. (1970–2024)' },
+            { etf: 'Vanguard FTSE All-World UCITS ETF (VWCE)', isin: 'IE00BK5BQT80', dovod: 'Maximálna diverzifikácia vr. rozvíjajúcich sa trhov, TER 0,22%', zlozenie: '~3 700 spoločností z celého sveta vrátane emerging markets', vynos: '~8% p.a. (2000–2024)' }
+        ],
+        kratky: [
+            { etf: 'iShares Core Euro Govt Bond UCITS ETF (IEAG)', isin: 'IE00B4WXJJ64', dovod: 'Štátne dlhopisy eurozóny, nízke riziko, TER 0,09%', zlozenie: 'Štátne dlhopisy Nemecka, Francúzska, Talianska, Španielska a ďalších krajín EÚ', vynos: '~3% p.a. (2000–2024)' },
+            { etf: 'Vanguard EUR Eurozone Govt Bond UCITS ETF (VETY)', isin: 'IE00BZ163L38', dovod: 'Alternatíva od Vanguard, nižší TER, TER 0,07%', zlozenie: 'Štátne dlhopisy krajín eurozóny, podobné zloženie ako IEAG', vynos: '~3% p.a. (2000–2024)' }
+        ]
     }
 }
 
@@ -98,22 +116,39 @@ function vypocitaj() {
     document.getElementById('tabulkaVysledkov').innerHTML = tabulkaHTML
 
     // Odporúčanie ETF
-    const odp = etfOdporucania[rizikoPoupravene][horizont]
+    const odporucania = etfOdporucania[rizikoPoupravene][horizont]
     const vekInfo = vek > 55
         ? `<p class="text-warning small">⚠️ Vzhľadom na váš vek (${vek}) sme znížili riziko portfólia.</p>`
         : vek < 30
             ? `<p class="text-info small">💡 Máte ${vek} rokov — odporúčame agresívnejší prístup.</p>`
             : ''
 
+    const etfKarty = odporucania.map((odp, i) => `
+    <div class="alert alert-success mb-2">
+        <div class="d-flex align-items-center gap-2 mb-1">
+            <span class="badge bg-success">${i === 0 ? '1. voľba' : '2. voľba'}</span>
+            <h6 class="mb-0">🎯 <span
+                class="etf-tooltip-trigger"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                data-bs-html="true"
+                title="<strong>Zloženie:</strong> ${odp.zlozenie}<br><strong>Priemerný výnos:</strong> ${odp.vynos}"
+            >${odp.etf}</span></h6>
+        </div>
+        <p class="mb-1 small"><strong>ISIN:</strong> ${odp.isin}</p>
+        <p class="mb-0 small"><strong>Prečo?</strong> ${odp.dovod}</p>
+    </div>`).join('')
+
     document.getElementById('odporucanie').innerHTML = `
     ${vekInfo}
-    <div class="alert alert-success">
-        <h5>🎯 ${odp.etf}</h5>
-        <p class="mb-1"><strong>ISIN:</strong> ${odp.isin}</p>
-        <p class="mb-0"><strong>Prečo?</strong> ${odp.dovod}</p>
-    </div>
-    <p class="text-muted small">⚠️ Toto nie je investičné poradenstvo. Informácie sú len vzdelávacie.</p>
+    ${etfKarty}
+    <p class="text-muted small mb-0">⚠️ Toto nie je investičné poradenstvo. Informácie sú len vzdelávacie.</p>
 `
+
+    // Inicializuj tooltips po každom renderi
+    document.querySelectorAll('.etf-tooltip-trigger').forEach(el => {
+        new bootstrap.Tooltip(el)
+    })
 
     // Brokeri
     // Výpočet nákladov brokerov

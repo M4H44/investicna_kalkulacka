@@ -80,6 +80,12 @@ h1 {
     cursor: pointer;
 }
 
+/* ETF tooltip trigger */
+.etf-tooltip-trigger {
+    cursor: help;
+    border-bottom: 1px dashed #198754;
+}
+
 /* Alert odporúčanie */
 .alert-success {
     background: linear-gradient(135deg, #d1fae5, #ecfdf5);
