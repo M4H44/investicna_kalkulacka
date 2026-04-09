@@ -11,8 +11,9 @@
 <body class="bg-light">
 
 <nav class="navbar navbar-dark bg-dark">
-    <div class="container">
-        <span class="navbar-brand fw-bold">📈 Investičná kalkulačka</span>
+    <div class="container d-flex justify-content-between align-items-center">
+        <a class="navbar-brand fw-bold text-decoration-none" href="index.html">📈 Investičná kalkulačka</a>
+        <a href="vzdelavanie.html" class="btn btn-outline-light btn-sm fw-semibold">📖 Základy investovania</a>
     </div>
 </nav>
 
@@ -33,7 +34,7 @@
                     </div>
 
                     <div class="mb-4">
-                        <label class="form-label fw-bold">Počet rokov: <span id="labelRoky" class="text-success">20 rokov</span></label>
+                        <label class="form-label fw-bold">Počet rokov investovania: <span id="labelRoky" class="text-success">20 rokov</span></label>
                         <input type="range" id="pocetRokov" class="form-range" value="20" min="1" max="50" step="1">
                         <div class="d-flex justify-content-between text-muted small"><span>1 rok</span><span>50 rokov</span></div>
                     </div>

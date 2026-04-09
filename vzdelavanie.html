@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Základy investovania – Investičná kalkulačka</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .triangle-wrap {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0 2.5rem;
+        }
+        .risk-card {
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            height: 100%;
+            transition: transform 0.2s;
+            padding: 1.25rem;
+        }
+        .risk-card:hover { transform: translateY(-3px); }
+        .pillar-card {
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            height: 100%;
+            transition: transform 0.2s;
+        }
+        .pillar-card:hover { transform: translateY(-3px); }
+        .pillar-icon { font-size: 2.6rem; }
+        .section-title {
+            font-weight: 800;
+            color: #1a1a2e;
+            margin-bottom: 1.5rem;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #d1fae5, #ecfdf5);
+            border-left: 4px solid #198754;
+            border-radius: 0 12px 12px 0;
+            padding: 1rem 1.25rem;
+        }
+        .warn-box {
+            background: linear-gradient(135deg, #fff3cd, #fffbe6);
+            border-left: 4px solid #ffc107;
+            border-radius: 0 12px 12px 0;
+            padding: 1rem 1.25rem;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #dbeafe, #eff6ff);
+            border-left: 4px solid #0d6efd;
+            border-radius: 0 12px 12px 0;
+            padding: 1rem 1.25rem;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container d-flex justify-content-between align-items-center">
+        <a class="navbar-brand fw-bold text-decoration-none" href="index.html">📈 Investičná kalkulačka</a>
+        <a href="vzdelavanie.html" class="btn btn-outline-light btn-sm fw-semibold active">📖 Základy investovania</a>
+    </div>
+</nav>
+
+<div class="container my-5">
+
+    <h1 class="text-center mb-2">📖 Základy investovania</h1>
+    <p class="text-center text-muted mb-5">Pochop kľúčové pojmy skôr, než vložíš prvé euro</p>
+
+    <!-- INVESTIČNÝ TROJUHOLNÍK -->
+    <section class="mb-5">
+        <h2 class="section-title text-center">Investičný trojuholník</h2>
+        <p class="text-center text-muted mb-4">
+            Každá investícia balansuje medzi tromi vlastnosťami. Nemôžeš mať všetky tri naraz —
+            vždy musíš niečo obetovať.
+        </p>
+
+        <div class="triangle-wrap">
+            <svg width="440" height="370" viewBox="0 0 440 370" xmlns="http://www.w3.org/2000/svg">
+                <!-- Triangle fill -->
+                <polygon points="220,55 385,305 55,305"
+                         fill="#1a1a2e" opacity="0.10"
+                         stroke="#1a1a2e" stroke-width="2.5" stroke-opacity="0.25"/>
+                <!-- Dashed center lines -->
+                <line x1="220" y1="55"  x2="220" y2="305" stroke="#1a1a2e" stroke-width="1" stroke-dasharray="5,5" opacity="0.15"/>
+                <line x1="55"  y1="305" x2="302" y2="180" stroke="#1a1a2e" stroke-width="1" stroke-dasharray="5,5" opacity="0.15"/>
+                <line x1="385" y1="305" x2="138" y2="180" stroke="#1a1a2e" stroke-width="1" stroke-dasharray="5,5" opacity="0.15"/>
+<!-- Circles -->
+                <circle cx="220" cy="55"  r="52" fill="#dc3545"/>
+                <circle cx="385" cy="305" r="52" fill="#198754"/>
+                <circle cx="55"  cy="305" r="52" fill="#0d6efd"/>
+                <!-- Top: Výnos -->
+                <text x="220" y="44"  text-anchor="middle" fill="#fff" font-size="17" font-family="Segoe UI,sans-serif">📈</text>
+                <text x="220" y="64"  text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="Segoe UI,sans-serif">Výnos</text>
+                <!-- Bottom-right: Likvidita -->
+                <text x="385" y="294" text-anchor="middle" fill="#fff" font-size="17" font-family="Segoe UI,sans-serif">💧</text>
+                <text x="385" y="314" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="Segoe UI,sans-serif">Likvidita</text>
+                <!-- Bottom-left: Riziko -->
+                <text x="55"  y="294" text-anchor="middle" fill="#fff" font-size="17" font-family="Segoe UI,sans-serif">🛡️</text>
+                <text x="55"  y="314" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="Segoe UI,sans-serif">Riziko</text>
+            </svg>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="pillar-card card p-4 text-center">
+                    <div class="pillar-icon mb-2">📈</div>
+                    <h5 class="fw-bold text-danger mb-2">Výnos</h5>
+                    <p class="text-muted small mb-0">
+                        Koľko zarobíš. Vyšší výnos spravidla znamená vyššie riziko
+                        alebo nižšiu likviditu. Akcie historicky ~7–14 % ročne, dlhopisy ~2–4 %.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="pillar-card card p-4 text-center">
+                    <div class="pillar-icon mb-2">🛡️</div>
+                    <h5 class="fw-bold text-primary mb-2">Riziko</h5>
+                    <p class="text-muted small mb-0">
+                        Šanca, že stratíš časť peňazí. Bezpečnejšie investície
+                        prinášajú nižší výnos. Riziko sa efektívne znižuje dlhším horizontom.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="pillar-card card p-4 text-center">
+                    <div class="pillar-icon mb-2">💧</div>
+                    <h5 class="fw-bold text-success mb-2">Likvidita</h5>
+                    <p class="text-muted small mb-0">
+                        Ako rýchlo môžeš peniaze vybrať bez straty. ETF na burze sú
+                        vysoko likvidné — predáš ich behom sekúnd kedykoľvek.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3 mt-3 justify-content-center">
+            <div class="col-md-4">
+                <div class="tip-box">
+                    <strong>Príklad: Štátne dlhopisy</strong><br>
+                    <span class="text-muted small">✅ Nízke riziko &nbsp; ✅ Vysoká likvidita &nbsp; ❌ Nízky výnos</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="warn-box">
+                    <strong>Príklad: Akciový ETF (S&P 500)</strong><br>
+                    <span class="text-muted small">⚠️ Stredné riziko &nbsp; ✅ Vysoká likvidita &nbsp; ✅ Vysoký výnos</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-box">
+                    <strong>Príklad: Nehnuteľnosť</strong><br>
+                    <span class="text-muted small">✅ Nízke riziko &nbsp; ❌ Nízka likvidita &nbsp; ✅ Slušný výnos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TYPY RIZIKA -->
+    <section class="mb-5">
+        <h2 class="section-title text-center">Typy investičného rizika</h2>
+        <p class="text-center text-muted mb-4">
+            Nie každé riziko je rovnaké. Niektoré vieš eliminovať, iné nie.
+        </p>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="risk-card card">
+                    <h6 class="fw-bold mb-1">📉 Trhové riziko</h6>
+                    <p class="text-muted small mb-2">Celý trh klesá — napr. počas recesie alebo pandémie. Postihuje všetkých investorov naraz.</p>
+                    <span class="badge bg-danger">Nedá sa eliminovať</span>
+                    <span class="badge bg-secondary ms-1">Znižuje sa dlhším časom</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="risk-card card">
+                    <h6 class="fw-bold mb-1">🏢 Firemné riziko</h6>
+                    <p class="text-muted small mb-2">Jedna firma skrachuje (napr. Enron, Wirecard). Ak máš len ju, prídeš o všetko.</p>
+                    <span class="badge bg-success">Dá sa eliminovať diverzifikáciou</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="risk-card card">
+                    <h6 class="fw-bold mb-1">💱 Menové riziko</h6>
+                    <p class="text-muted small mb-2">Ak investuješ v USD a euro posilní, tvoj výnos v eurách klesne. Pre SK/EÚ investorov reálne.</p>
+                    <span class="badge bg-warning text-dark">Čiastočne zvládnuteľné</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="risk-card card">
+                    <h6 class="fw-bold mb-1">🔥 Inflačné riziko</h6>
+                    <p class="text-muted small mb-2">Peniaze na sporiacom účte strácajú kúpnu silu. Inflácia 3 % ročne = tvoje úspory reálne klesajú.</p>
+                    <span class="badge bg-danger">Nedá sa ignorovať</span>
+                    <span class="badge bg-secondary ms-1">Akcie ho dlhodobo prekonávajú</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="risk-card card">
+                    <h6 class="fw-bold mb-1">⏳ Časové riziko</h6>
+                    <p class="text-muted small mb-2">Predáš v zlý čas — napr. počas krachu. Snaha o „časovanie trhu" zlyhá takmer vždy.</p>
+                    <span class="badge bg-success">Rieši to pravidelné investovanie (DCA)</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="risk-card card">
+                    <h6 class="fw-bold mb-1">🏦 Riziko protistrany</h6>
+                    <p class="text-muted small mb-2">Broker skrachuje. Preto sú dôležité regulácia a ochrana vkladov (SIPC, FSCS, ICS).</p>
+                    <span class="badge bg-warning text-dark">Znižuje regulácia</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ČO JE ETF -->
+    <section class="mb-5">
+        <h2 class="section-title text-center">Čo je ETF a prečo je populárny?</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card pillar-card p-4 mb-3">
+                    <p class="mb-3">
+                        <strong>ETF (Exchange Traded Fund)</strong> je fond obchodovaný na burze, ktorý sleduje
+                        index — napr. S&amp;P 500 obsahuje 500 najväčších amerických firiem.
+                        Kúpou jedného ETF vlastníš malý podiel v každej z nich naraz.
+                    </p>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <div class="tip-box">
+                                <strong>✅ Výhody ETF</strong><br>
+                                <span class="small">Nízke poplatky (TER 0,07–0,2 %)<br>
+                                Okamžitá diverzifikácia<br>
+                                Vysoká likvidita<br>
+                                Dostupné od 1 €</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="warn-box">
+                                <strong>⚠️ Na čo si dať pozor</strong><br>
+                                <span class="small">Hodnota kolíše každý deň<br>
+                                Pri panike ľudia predávajú lacno<br>
+                                Mena fondu vs. tvoja mena<br>
+                                Akumulačné vs. distribučné</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZLATÉ PRAVIDLÁ -->
+    <section class="mb-5">
+        <h2 class="section-title text-center">5 zlatých pravidiel dlhodobého investora</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <ol class="list-group list-group-numbered">
+                    <li class="list-group-item d-flex gap-3 align-items-start py-3">
+                        <div>
+                            <strong>Investuj pravidelne, nie raz za čas</strong><br>
+                            <span class="text-muted small">DCA (dollar-cost averaging) znižuje riziko zlého načasovania trhu.</span>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex gap-3 align-items-start py-3">
+                        <div>
+                            <strong>Diverzifikuj — neskladaj vajcia do jedného košíka</strong><br>
+                            <span class="text-muted small">ETF na globálny index kúpi ti podiel v 1 600+ firmách naraz.</span>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex gap-3 align-items-start py-3">
+                        <div>
+                            <strong>Dlhší horizont = menšie efektívne riziko</strong><br>
+                            <span class="text-muted small">S&amp;P 500 nikdy neklesol za akékoľvek 20-ročné obdobie v histórii.</span>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex gap-3 align-items-start py-3">
+                        <div>
+                            <strong>Nesleduj trh každý deň</strong><br>
+                            <span class="text-muted small">Krátkodobé výkyvy sú normálne. Panika je najdrahšia investičná chyba.</span>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex gap-3 align-items-start py-3">
+                        <div>
+                            <strong>Začni skôr, nie perfektnejšie</strong><br>
+                            <span class="text-muted small">Čas na trhu je cennejší ako načasovanie trhu. Zložený úrok robí zázraky.</span>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="text-center mb-5">
+        <a href="index.html" class="btn btn-success btn-lg fw-bold px-5">
+            🚀 Vyskúšaj kalkulačku
+        </a>
+    </div>
+
+</div>
+
+<footer class="footer-main mt-5 py-5">
+    <div class="container">
+        <div class="row mb-4 g-4">
+            <div class="col-md-4">
+                <h5 class="fw-bold mb-3 text-white">📈 Investičná kalkulačka</h5>
+                <p class="footer-text">
+                    Bezplatný vzdelávací nástroj pre dlhodobých investorov v EÚ.
+                    Pomáhame pochopiť silu zloženého úročenia a orientovať sa vo svete ETF.
+                </p>
+                <p class="footer-text">
+                    Zdroje dát: MSCI, S&amp;P Global, NASDAQ, ECB.
+                </p>
+            </div>
+
+            <div class="col-md-3">
+                <h6 class="fw-bold mb-3 text-white">🔗 Brokeri</h6>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="https://www.xtb.com/sk" target="_blank" rel="noopener">→ XTB</a></li>
+                    <li><a href="https://www.trading212.com" target="_blank" rel="noopener">→ Trading 212</a></li>
+                    <li><a href="https://www.degiro.sk" target="_blank" rel="noopener">→ DEGIRO</a></li>
+                    <li><a href="https://www.traderepublic.com" target="_blank" rel="noopener">→ Trade Republic</a></li>
+                    <li><a href="https://www.etoro.com" target="_blank" rel="noopener">→ eToro</a></li>
+                    <li><a href="https://www.portu.sk" target="_blank" rel="noopener">→ Portu</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-5">
+                <h6 class="fw-bold mb-3 text-white">⚖️ Právne upozornenie</h6>
+                <p class="footer-text">
+                    Táto stránka slúži <strong class="text-white">výlučne na vzdelávacie účely</strong> a nepredstavuje investičné poradenstvo v zmysle zákona č. 566/2001 Z. z. o cenných papieroch ani smernice MiFID II.
+                </p>
+                <p class="footer-text mb-0">
+                    Historické výnosy <strong class="text-white">nezaručujú</strong> budúce výsledky. Pred akýmkoľvek investičným rozhodnutím odporúčame konzultáciu s licencovaným finančným poradcom registrovaným v NBS.
+                </p>
+            </div>
+        </div>
+
+        <hr class="footer-divider">
+
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+            <p class="footer-copy mb-0">© 2026 Investičná kalkulačka — nie sme licencovaní investiční poradcovia</p>
+            <p class="footer-copy mb-0">Nie sme pobočkou ani partnerom žiadneho brokera</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
