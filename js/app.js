@@ -115,10 +115,20 @@ function vypocitaj() {
 
     // Brokeri
     // Výpočet nákladov brokerov
-    const fvXTB = vypocitajFV(mesacna, roky, 0.10)
-    const fvPortu = vypocitajFV(mesacna * (1 - 0.01/12), roky, 0.10) // 1% ročne
-    const fveToro = vypocitajFV(mesacna * (1 - 0.015/12), roky, 0.10) // 1.5% konverzia
-    const fvTR = fvXTB - (roky * 12) // 1€ za transakciu mesačne
+    // Výnos podľa profilu
+    const vynosZaklad = rizikoPoupravene === 'agresivny' ? 0.14 : rizikoPoupravene === 'vyvazeny' ? 0.10 : 0.07
+
+// XTB - bez poplatkov
+    const fvXTB = vypocitajFV(mesacna, roky, vynosZaklad)
+
+// Portu - 1% ročne = znížený výnos
+    const fvPortu = vypocitajFV(mesacna, roky, vynosZaklad - 0.01)
+
+// eToro - 1.5% konverzia jednorazovo pri každom vklade
+    const fveToro = vypocitajFV(mesacna * (1 - 0.015), roky, vynosZaklad)
+
+// Trade Republic - 1€/mes fixný poplatok
+    const fvTR = vypocitajFV(mesacna - 1, roky, vynosZaklad)
 
     const nakladyXTB = 0
     const nakladyPortu = Math.round(fvXTB - fvPortu)
@@ -135,7 +145,7 @@ function vypocitaj() {
                 <th>Dostupnosť</th>
                 <th>Jazyk</th>
                 <th>Náklady za ${roky} rokov</th>
-                <th>Zostatok</th>
+                <th>Zostatok (nominálne)</th>
                 <th></th>
             </tr>
         </thead>
@@ -180,12 +190,12 @@ function vypocitaj() {
     </table>
     </div>
     <p class="text-muted small text-center mt-2">
-        * Náklady vypočítané pri ${formatEur(mesacna)}/mes počas ${roky} rokov pri výnose S&P 500 (~10% p.a.)
+        * Náklady vypočítané pri ${formatEur(mesacna)}/mes počas ${roky} rokov. Výnos: ${(vynosZaklad * 100).toFixed(0)}% p.a. Hodnoty sú nominálne.
     </p>
 `
 
     // Graf
-    vykreslGraf(mesacna, roky, inflacia)
+    vykreslGraf(mesacna, roky, inflacia, rizikoPoupravene)
 
     // Zobraz výsledky
     const vysledky = document.getElementById('vysledky')
@@ -196,7 +206,7 @@ function vypocitaj() {
 // Graf
 let chartInstance = null
 
-function vykreslGraf(mesacna, roky, inflacia) {
+function vykreslGraf(mesacna, roky, inflacia, riziko) {
     const labels = []
     const dataNasdaq = []
     const dataSp500 = []
@@ -204,12 +214,15 @@ function vykreslGraf(mesacna, roky, inflacia) {
     const dataReal = []
     const dataVlozene = []
 
+    const vynosRealne = riziko === 'agresivny' ? 0.14 : riziko === 'vyvazeny' ? 0.10 : 0.07
+    const labelRealne = riziko === 'agresivny' ? 'NASDAQ reálne' : riziko === 'vyvazeny' ? 'S&P 500 reálne' : 'MSCI World reálne'
+
     for (let r = 1; r <= roky; r++) {
         labels.push(`${r} r.`)
         dataNasdaq.push(Math.round(vypocitajFV(mesacna, r, 0.14)))
         dataSp500.push(Math.round(vypocitajFV(mesacna, r, 0.10)))
         dataWorld.push(Math.round(vypocitajFV(mesacna, r, 0.07)))
-        dataReal.push(Math.round(realnaHodnota(vypocitajFV(mesacna, r, 0.10), inflacia, r)))
+        dataReal.push(Math.round(realnaHodnota(vypocitajFV(mesacna, r, vynosRealne), inflacia, r)))
         dataVlozene.push(Math.round(mesacna * 12 * r))
     }
 
@@ -224,7 +237,7 @@ function vykreslGraf(mesacna, roky, inflacia) {
                 { label: 'NASDAQ 100', data: dataNasdaq, borderColor: '#0d6efd', tension: 0.4, fill: false },
                 { label: 'S&P 500', data: dataSp500, borderColor: '#198754', tension: 0.4, fill: false },
                 { label: 'MSCI World', data: dataWorld, borderColor: '#ffc107', tension: 0.4, fill: false },
-                { label: 'S&P 500 reálne', data: dataReal, borderColor: '#198754', borderDash: [5,5], tension: 0.4, fill: false },
+                { label: labelRealne, data: dataReal, borderColor: '#198754', borderDash: [5,5], tension: 0.4, fill: false },
                 { label: 'Vložené', data: dataVlozene, borderColor: '#6c757d', tension: 0.4, fill: false }
             ]
         },
