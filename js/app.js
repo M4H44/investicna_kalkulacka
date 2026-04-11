@@ -22,35 +22,43 @@ const indexy = {
 }
 
 // Odporúčania ETF podľa profilu
+const dlhopisy = [
+    { etf: 'iShares Core Euro Govt Bond UCITS ETF (IEAG)', isin: 'IE00B4WXJJ64', dovod: 'Štátne dlhopisy eurozóny, nízke riziko, TER 0,07%. ⚠️ Distribučný (DIS) — kupóny vyplácané pravidelne, treba ručne reinvestovať.', zlozenie: 'Štátne dlhopisy Nemecka, Francúzska, Talianska, Španielska a ďalších krajín EÚ', vynos: '~3% p.a. (forward estimate)' },
+    { etf: 'Vanguard EUR Eurozone Govt Bond UCITS ETF (VETY)', isin: 'IE00BZ163H91', dovod: 'Alternatíva od Vanguard, TER 0,07%. ⚠️ Distribučný (DIS) — kupóny vyplácané pravidelne, treba ručne reinvestovať.', zlozenie: 'Štátne dlhopisy krajín eurozóny — podobné zloženie ako IEAG', vynos: '~3% p.a. (forward estimate)' }
+]
+
 const etfOdporucania = {
     agresivny: {
-        dlhy: [
+        rok1:  dlhopisy,
+        kratky: [
             { etf: 'Amundi NASDAQ-100 II UCITS ETF Acc (6AQQ)', isin: 'LU1681038243', dovod: 'Najvyšší historický výnos ~14% p.a., TER 0,23%, ACC — dostupné na XTB aj Trading 212 v EUR (Xetra: 6AQQ.DE)', zlozenie: '100 najväčších nefinančných US tech spoločností — Apple, Microsoft, Nvidia, Amazon...', vynos: '~14% p.a. (1985–2024)' },
             { etf: 'iShares Core S&P 500 UCITS ETF Acc (CSP1)', isin: 'IE00B5BMR087', dovod: 'Stabilnejší ako NASDAQ, ~11% p.a., TER 0,07%, ACC — dostupné na XTB aj Trading 212 v EUR (Xetra: SXR8.DE)', zlozenie: '500 najväčších US spoločností naprieč všetkými sektormi', vynos: '~11% p.a. (1985–2024)' }
         ],
-        kratky: [
-            { etf: 'iShares Core S&P 500 UCITS ETF Acc (CSP1)', isin: 'IE00B5BMR087', dovod: 'Stabilný, likvidný, TER 0,07% — dostupné na XTB aj Trading 212 v EUR', zlozenie: '500 najväčších US spoločností naprieč všetkými sektormi', vynos: '~11% p.a. (1985–2024)' },
-            { etf: 'iShares Core MSCI World UCITS ETF Acc (IWDA)', isin: 'IE00B4L5Y983', dovod: 'Širšia diverzifikácia, nižšia volatilita, TER 0,20% — dostupné na XTB aj Trading 212 v EUR', zlozenie: '~1 400 spoločností z 23 rozvinutých krajín (US, EU, JP...)', vynos: '~9% p.a. (1985–2024)' }
+        dlhy: [
+            { etf: 'Amundi NASDAQ-100 II UCITS ETF Acc (6AQQ)', isin: 'LU1681038243', dovod: 'Najvyšší historický výnos ~14% p.a., TER 0,23%, ACC — dostupné na XTB aj Trading 212 v EUR (Xetra: 6AQQ.DE)', zlozenie: '100 najväčších nefinančných US tech spoločností — Apple, Microsoft, Nvidia, Amazon...', vynos: '~14% p.a. (1985–2024)' },
+            { etf: 'iShares Core S&P 500 UCITS ETF Acc (CSP1)', isin: 'IE00B5BMR087', dovod: 'Stabilnejší ako NASDAQ, ~11% p.a., TER 0,07%, ACC — dostupné na XTB aj Trading 212 v EUR (Xetra: SXR8.DE)', zlozenie: '500 najväčších US spoločností naprieč všetkými sektormi', vynos: '~11% p.a. (1985–2024)' }
         ]
     },
     vyvazeny: {
-        dlhy: [
-            { etf: 'iShares Core S&P 500 UCITS ETF Acc (CSP1)', isin: 'IE00B5BMR087', dovod: 'Dlhodobý výnos ~11% p.a., nižšia volatilita, TER 0,07% — dostupné na XTB aj Trading 212 v EUR', zlozenie: '500 najväčších US spoločností naprieč všetkými sektormi', vynos: '~11% p.a. (1985–2024)' },
-            { etf: 'Vanguard FTSE All-World UCITS ETF Acc (VWCE)', isin: 'IE00BK5BQT80', dovod: 'Maximálna globálna diverzifikácia vr. rozvíjajúcich sa trhov, TER 0,22% — dostupné na XTB aj Trading 212 v EUR', zlozenie: '~3 700 spoločností z celého sveta vrátane emerging markets (Čína, India...)', vynos: '~9% p.a. (1985–2024)' }
-        ],
+        rok1:  dlhopisy,
         kratky: [
-            { etf: 'iShares Core MSCI World UCITS ETF Acc (IWDA)', isin: 'IE00B4L5Y983', dovod: 'Rozvinuté trhy, nižšia volatilita, TER 0,20% — dostupné na XTB aj Trading 212 v EUR', zlozenie: '~1 400 spoločností z 23 rozvinutých krajín (US, EU, JP...)', vynos: '~9% p.a. (1985–2024)' },
-            { etf: 'Vanguard FTSE All-World UCITS ETF Acc (VWCE)', isin: 'IE00BK5BQT80', dovod: 'Širšia diverzifikácia vr. rozvíjajúcich sa trhov, TER 0,22% — dostupné na XTB aj Trading 212 v EUR', zlozenie: '~3 700 spoločností z celého sveta vrátane emerging markets', vynos: '~9% p.a. (1985–2024)' }
+            { etf: 'iShares Core S&P 500 UCITS ETF Acc (CSP1)', isin: 'IE00B5BMR087', dovod: 'Dlhodobý výnos ~11% p.a., TER 0,07%, ACC — dostupné na XTB aj Trading 212 v EUR (Xetra: SXR8.DE)', zlozenie: '500 najväčších US spoločností naprieč všetkými sektormi', vynos: '~11% p.a. (1985–2024)' },
+            { etf: 'iShares Core MSCI World UCITS ETF Acc (IWDA)', isin: 'IE00B4L5Y983', dovod: 'Globálna diverzifikácia, nižšia volatilita, TER 0,20%, ACC — dostupné na XTB aj Trading 212 v EUR', zlozenie: '~1 400 spoločností z 23 rozvinutých krajín (US, EU, JP...)', vynos: '~9% p.a. (1985–2024)' }
+        ],
+        dlhy: [
+            { etf: 'iShares Core S&P 500 UCITS ETF Acc (CSP1)', isin: 'IE00B5BMR087', dovod: 'Dlhodobý výnos ~11% p.a., TER 0,07%, ACC — dostupné na XTB aj Trading 212 v EUR (Xetra: SXR8.DE)', zlozenie: '500 najväčších US spoločností naprieč všetkými sektormi', vynos: '~11% p.a. (1985–2024)' },
+            { etf: 'Amundi NASDAQ-100 II UCITS ETF Acc (6AQQ)', isin: 'LU1681038243', dovod: 'Vyšší výnos pre odvážnejších, ~14% p.a., TER 0,23%, ACC — dostupné na XTB aj Trading 212 v EUR', zlozenie: '100 najväčších nefinančných US tech spoločností', vynos: '~14% p.a. (1985–2024)' }
         ]
     },
     konzervativny: {
-        dlhy: [
-            { etf: 'iShares Core MSCI World UCITS ETF Acc (IWDA)', isin: 'IE00B4L5Y983', dovod: 'Rozvinuté trhy ~9% p.a., nižšie riziko ako S&P 500, TER 0,20% — dostupné na XTB aj Trading 212 v EUR', zlozenie: '~1 400 spoločností z 23 rozvinutých krajín (US, EU, JP...)', vynos: '~9% p.a. (1985–2024)' },
-            { etf: 'Vanguard FTSE All-World UCITS ETF Acc (VWCE)', isin: 'IE00BK5BQT80', dovod: 'Maximálna diverzifikácia vr. rozvíjajúcich sa trhov, TER 0,22% — dostupné na XTB aj Trading 212 v EUR', zlozenie: '~3 700 spoločností z celého sveta vrátane emerging markets', vynos: '~9% p.a. (1985–2024)' }
-        ],
+        rok1:  dlhopisy,
         kratky: [
-            { etf: 'iShares Core Euro Govt Bond UCITS ETF (IEAG)', isin: 'IE00B4WXJJ64', dovod: 'Štátne dlhopisy eurozóny, nízke riziko, TER 0,09%. ⚠️ Distribučný (DIS) — kupóny vyplácané pravidelne, treba ručne reinvestovať.', zlozenie: 'Štátne dlhopisy Nemecka, Francúzska, Talianska, Španielska a ďalších krajín EÚ', vynos: '~3% p.a. (forward estimate)' },
-            { etf: 'Vanguard EUR Eurozone Govt Bond UCITS ETF (VETY)', isin: 'IE00BZ163H91', dovod: 'Alternatíva od Vanguard, nižší TER 0,07%. ⚠️ Distribučný (DIS) — kupóny vyplácané pravidelne, treba ručne reinvestovať.', zlozenie: 'Štátne dlhopisy krajín eurozóny — podobné zloženie ako IEAG', vynos: '~3% p.a. (forward estimate)' }
+            { etf: 'iShares Core MSCI World UCITS ETF Acc (IWDA)', isin: 'IE00B4L5Y983', dovod: 'Globálne rozvinuté trhy, nižšia volatilita, TER 0,20%, ACC — dostupné na XTB aj Trading 212 v EUR', zlozenie: '~1 400 spoločností z 23 rozvinutých krajín (US, EU, JP...)', vynos: '~9% p.a. (1985–2024)' },
+            { etf: 'Vanguard FTSE All-World UCITS ETF Acc (VWCE)', isin: 'IE00BK5BQT80', dovod: 'Maximálna diverzifikácia vr. rozvíjajúcich sa trhov, TER 0,22%, ACC — dostupné na XTB aj Trading 212 v EUR', zlozenie: '~3 700 spoločností z celého sveta vrátane emerging markets', vynos: '~9% p.a. (1985–2024)' }
+        ],
+        dlhy: [
+            { etf: 'iShares Core S&P 500 UCITS ETF Acc (CSP1)', isin: 'IE00B5BMR087', dovod: 'Solídny dlhodobý výnos ~11% p.a., TER 0,07%, ACC — dostupné na XTB aj Trading 212 v EUR', zlozenie: '500 najväčších US spoločností naprieč všetkými sektormi', vynos: '~11% p.a. (1985–2024)' },
+            { etf: 'iShares Core MSCI World UCITS ETF Acc (IWDA)', isin: 'IE00B4L5Y983', dovod: 'Širšia globálna diverzifikácia, nižšia volatilita, TER 0,20%, ACC — dostupné na XTB aj Trading 212 v EUR', zlozenie: '~1 400 spoločností z 23 rozvinutých krajín (US, EU, JP...)', vynos: '~9% p.a. (1985–2024)' }
         ]
     }
 }
@@ -79,22 +87,13 @@ function vypocitaj() {
     const roky = parseInt(document.getElementById('pocetRokov').value)
     const inflacia = parseFloat(document.getElementById('inflacia').value)
     const riziko = document.getElementById('riziko').value
-    const horizont = roky <= 5 ? 'kratky' : 'dlhy'
+    const horizont = roky <= 1 ? 'rok1' : roky <= 4 ? 'kratky' : 'dlhy'
     const vek = parseInt(document.getElementById('vek').value)
 
     if (isNaN(mesacna) || isNaN(roky) || isNaN(inflacia) || isNaN(vek)) return
     if (mesacna <= 0 || roky <= 0) return
 
-// Korektor podľa veku
-    let rizikoPoupravene = riziko
-    if (vek > 55) {
-        if (riziko === 'agresivny') rizikoPoupravene = 'vyvazeny'
-        if (riziko === 'vyvazeny') rizikoPoupravene = 'konzervativny'
-    }
-    if (vek < 30) {
-        if (riziko === 'konzervativny') rizikoPoupravene = 'vyvazeny'
-        if (riziko === 'vyvazeny') rizikoPoupravene = 'agresivny'
-    }
+    const rizikoPoupravene = riziko
 
     const vlozene = mesacna * 12 * roky
 
@@ -141,10 +140,10 @@ function vypocitaj() {
 
     // Odporúčanie ETF
     const odporucania = etfOdporucania[rizikoPoupravene][horizont]
-    const vekInfo = vek > 55
-        ? `<p class="text-warning small">⚠️ Vzhľadom na váš vek (${vek}) sme znížili riziko portfólia.</p>`
-        : vek < 30
-            ? `<p class="text-info small">💡 Máte ${vek} rokov — odporúčame agresívnejší prístup.</p>`
+    const vekInfo = roky <= 1
+        ? `<p class="text-warning small">⚠️ Pre 1-ročný horizont odporúčame dlhopisy bez ohľadu na zvolený profil.</p>`
+        : roky <= 4
+            ? `<p class="text-info small">💡 Pre horizont ${roky} roky odporúčame konzervatívnejší prístup ako pri dlhodobom investovaní.</p>`
             : ''
 
     const etfKarty = odporucania.map((odp, i) => `
@@ -210,23 +209,23 @@ function vypocitaj() {
         <thead class="table-dark">
             <tr>
                 <th>Broker</th>
-                <th>Poplatky ETF</th>
+                <th>Poplatky<br>ETF</th>
                 <th class="hide-mobile">Dostupnosť</th>
                 <th class="hide-mobile">Jazyk</th>
                 <th>Náklady za ${roky} rokov</th>
                 <th class="hide-mobile">Zostatok (nominálne)</th>
-                <th></th>
+                <th>Účet</th>
             </tr>
         </thead>
         <tbody>
             <tr class="table-success">
                 <td><strong class="broker-tip" data-broker="xtb">XTB</strong> ⭐</td>
-                <td>0% do 100k€/mes</td>
+                <td>0%<br><small class="text-muted">do 100k€/mes</small></td>
                 <td class="hide-mobile">Celá EÚ</td>
                 <td class="hide-mobile">SK/CZ/PL/DE</td>
                 <td class="text-success fw-bold">${formatEur(nakladyXTB)}</td>
                 <td class="hide-mobile fw-bold">${formatEur(fvXTB)}</td>
-                <td><a href="https://www.xtb.com/sk" target="_blank" class="btn btn-success btn-sm">Otvoriť účet</a></td>
+                <td><a href="https://www.xtb.com/sk" target="_blank" class="btn btn-success btn-sm"><span class="d-none d-md-inline">Otvoriť účet</span><span class="d-md-none">→</span></a></td>
             </tr>
             <tr class="table-success">
                 <td><strong class="broker-tip" data-broker="t212">Trading 212</strong> ⭐</td>
@@ -235,34 +234,34 @@ function vypocitaj() {
                 <td class="hide-mobile">SK/EN</td>
                 <td class="text-success fw-bold">${formatEur(nakladyT212)}</td>
                 <td class="hide-mobile fw-bold">${formatEur(fvT212)}</td>
-                <td><a href="https://www.trading212.com" target="_blank" class="btn btn-success btn-sm">Otvoriť účet</a></td>
+                <td><a href="https://www.trading212.com" target="_blank" class="btn btn-success btn-sm"><span class="d-none d-md-inline">Otvoriť účet</span><span class="d-md-none">→</span></a></td>
             </tr>
             <tr>
                 <td><strong class="broker-tip" data-broker="tr">Trade Republic</strong></td>
-                <td>1€/transakcia</td>
+                <td>1€<br><small class="text-muted">transakcia</small></td>
                 <td class="hide-mobile">18 krajín EÚ</td>
                 <td class="hide-mobile">SK/DE/FR</td>
                 <td class="text-warning fw-bold">-${formatEur(nakladyTR)}</td>
                 <td class="hide-mobile fw-bold">${formatEur(fvTR)}</td>
-                <td><a href="https://www.traderepublic.com" target="_blank" class="btn btn-outline-primary btn-sm">Otvoriť účet</a></td>
+                <td><a href="https://www.traderepublic.com" target="_blank" class="btn btn-outline-primary btn-sm"><span class="d-none d-md-inline">Otvoriť účet</span><span class="d-md-none">→</span></a></td>
             </tr>
             <tr>
                 <td><strong class="broker-tip" data-broker="degiro">DEGIRO</strong></td>
-                <td>1€ + 0,038%</td>
+                <td>1€<br><small class="text-muted">+0,038%</small></td>
                 <td class="hide-mobile">Celá EÚ</td>
                 <td class="hide-mobile">SK/EN</td>
                 <td class="text-warning fw-bold">-${formatEur(nakladyDegiro)}</td>
                 <td class="hide-mobile fw-bold">${formatEur(fvDegiro)}</td>
-                <td><a href="https://www.degiro.sk" target="_blank" class="btn btn-outline-primary btn-sm">Otvoriť účet</a></td>
+                <td><a href="https://www.degiro.sk" target="_blank" class="btn btn-outline-primary btn-sm"><span class="d-none d-md-inline">Otvoriť účet</span><span class="d-md-none">→</span></a></td>
             </tr>
             <tr>
                 <td><strong class="broker-tip" data-broker="etoro">eToro</strong></td>
-                <td>0% (1.5% konverzia)</td>
+                <td>0%<br><small class="text-muted">1,5% konv.</small></td>
                 <td class="hide-mobile">Celá EÚ</td>
                 <td class="hide-mobile">EN</td>
                 <td class="text-warning fw-bold">-${formatEur(nakladyeToro)}</td>
                 <td class="hide-mobile fw-bold">${formatEur(fveToro)}</td>
-                <td><a href="https://www.etoro.com" target="_blank" class="btn btn-outline-primary btn-sm">Otvoriť účet</a></td>
+                <td><a href="https://www.etoro.com" target="_blank" class="btn btn-outline-primary btn-sm"><span class="d-none d-md-inline">Otvoriť účet</span><span class="d-md-none">→</span></a></td>
             </tr>
             <tr>
                 <td><strong class="broker-tip" data-broker="portu">Portu</strong></td>
@@ -271,7 +270,7 @@ function vypocitaj() {
                 <td class="hide-mobile">SK/CZ</td>
                 <td class="text-danger fw-bold">-${formatEur(nakladyPortu)}</td>
                 <td class="hide-mobile fw-bold">${formatEur(fvPortu)}</td>
-                <td><a href="https://www.portu.sk" target="_blank" class="btn btn-outline-primary btn-sm">Otvoriť účet</a></td>
+                <td><a href="https://www.portu.sk" target="_blank" class="btn btn-outline-primary btn-sm"><span class="d-none d-md-inline">Otvoriť účet</span><span class="d-md-none">→</span></a></td>
             </tr>
         </tbody>
     </table>
