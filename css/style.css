@@ -137,6 +137,21 @@ h1 {
     color: #fff;
 }
 
+#broker-tooltip.wide {
+    max-width: 480px;
+}
+
+@media (max-width: 576px) {
+    #broker-tooltip.wide {
+        left: 8px !important;
+        right: 8px !important;
+        top: auto !important;
+        bottom: 16px !important;
+        max-width: calc(100vw - 16px);
+        width: calc(100vw - 16px);
+    }
+}
+
 .broker-tip {
     cursor: help;
     border-bottom: 1px dashed #aaa;

@@ -16,8 +16,8 @@ function brokerTooltip(klic) {
 // Historické výnosy indexov
 const indexy = {
     nasdaq:  { nazov: 'NASDAQ 100',  vynos: 0.14, farba: '#0d6efd' },
-    sp500:   { nazov: 'S&P 500',     vynos: 0.10, farba: '#198754' },
-    world:   { nazov: 'MSCI World',  vynos: 0.07, farba: '#ffc107' },
+    sp500:   { nazov: 'S&P 500',     vynos: 0.11, farba: '#198754' },
+    world:   { nazov: 'MSCI World',  vynos: 0.09, farba: '#ffc107' },
     dlhopisy:{ nazov: 'Dlhopisy',    vynos: 0.03, farba: '#6c757d' }
 }
 
@@ -29,23 +29,23 @@ const etfOdporucania = {
             { etf: 'iShares NASDAQ 100 UCITS ETF (CNDX)', isin: 'IE00B53SZB19', dovod: 'Alternatíva od iShares, rovnaký index, TER 0,33%', zlozenie: 'Rovnaké zloženie ako EQQQ — 100 nefinančných US tech titulov', vynos: '~14% p.a. (1985–2024)' }
         ],
         kratky: [
-            { etf: 'iShares Core S&P 500 UCITS ETF (CSPX)', isin: 'IE00B5BMR087', dovod: 'Stabilnejší ako NASDAQ pre kratší horizont, TER 0,07%', zlozenie: '500 najväčších US spoločností naprieč všetkými sektormi', vynos: '~10% p.a. (1957–2024)' },
-            { etf: 'iShares Core MSCI World UCITS ETF (IWDA)', isin: 'IE00B4L5Y983', dovod: 'Globálna diverzifikácia, nižšie riziko, TER 0,20%', zlozenie: '~1 400 spoločností z 23 rozvinutých krajín (US, EU, JP...)', vynos: '~8% p.a. (1970–2024)' }
+            { etf: 'iShares Core S&P 500 UCITS ETF (CSPX)', isin: 'IE00B5BMR087', dovod: 'Stabilnejší ako NASDAQ pre kratší horizont, TER 0,07%', zlozenie: '500 najväčších US spoločností naprieč všetkými sektormi', vynos: '~11% p.a. (1985–2024)' },
+            { etf: 'iShares Core MSCI World UCITS ETF (IWDA)', isin: 'IE00B4L5Y983', dovod: 'Globálna diverzifikácia, nižšie riziko, TER 0,20%', zlozenie: '~1 400 spoločností z 23 rozvinutých krajín (US, EU, JP...)', vynos: '~9% p.a. (1985–2024)' }
         ]
     },
     vyvazeny: {
         dlhy: [
-            { etf: 'iShares Core S&P 500 UCITS ETF (CSPX)', isin: 'IE00B5BMR087', dovod: 'Dlhodobý výnos ~10% p.a., nižšia volatilita, TER 0,07%', zlozenie: '500 najväčších US spoločností naprieč všetkými sektormi', vynos: '~10% p.a. (1957–2024)' },
+            { etf: 'iShares Core S&P 500 UCITS ETF (CSPX)', isin: 'IE00B5BMR087', dovod: 'Dlhodobý výnos ~11% p.a., nižšia volatilita, TER 0,07%', zlozenie: '500 najväčších US spoločností naprieč všetkými sektormi', vynos: '~11% p.a. (1985–2024)' },
             { etf: 'Vanguard FTSE All-World UCITS ETF (VWCE)', isin: 'IE00BK5BQT80', dovod: 'Širšia globálna diverzifikácia vr. rozvíjajúcich sa trhov, TER 0,22%', zlozenie: '~3 700 spoločností z celého sveta vrátane emerging markets (Čína, India...)', vynos: '~8% p.a. (2000–2024)' }
         ],
         kratky: [
-            { etf: 'iShares Core MSCI World UCITS ETF (IWDA)', isin: 'IE00B4L5Y983', dovod: 'Rozvinuté trhy, nižšia volatilita, TER 0,20%', zlozenie: '~1 400 spoločností z 23 rozvinutých krajín (US, EU, JP...)', vynos: '~8% p.a. (1970–2024)' },
+            { etf: 'iShares Core MSCI World UCITS ETF (IWDA)', isin: 'IE00B4L5Y983', dovod: 'Rozvinuté trhy, nižšia volatilita, TER 0,20%', zlozenie: '~1 400 spoločností z 23 rozvinutých krajín (US, EU, JP...)', vynos: '~9% p.a. (1985–2024)' },
             { etf: 'Vanguard FTSE All-World UCITS ETF (VWCE)', isin: 'IE00BK5BQT80', dovod: 'Maximálna diverzifikácia vr. rozvíjajúcich sa trhov, TER 0,22%', zlozenie: '~3 700 spoločností z celého sveta vrátane emerging markets', vynos: '~8% p.a. (2000–2024)' }
         ]
     },
     konzervativny: {
         dlhy: [
-            { etf: 'iShares Core MSCI World UCITS ETF (IWDA)', isin: 'IE00B4L5Y983', dovod: 'Rozvinuté trhy ~8% p.a., nižšie riziko ako S&P 500, TER 0,20%', zlozenie: '~1 400 spoločností z 23 rozvinutých krajín (US, EU, JP...)', vynos: '~8% p.a. (1970–2024)' },
+            { etf: 'iShares Core MSCI World UCITS ETF (IWDA)', isin: 'IE00B4L5Y983', dovod: 'Rozvinuté trhy ~9% p.a., nižšie riziko ako S&P 500, TER 0,20%', zlozenie: '~1 400 spoločností z 23 rozvinutých krajín (US, EU, JP...)', vynos: '~9% p.a. (1985–2024)' },
             { etf: 'Vanguard FTSE All-World UCITS ETF (VWCE)', isin: 'IE00BK5BQT80', dovod: 'Maximálna diverzifikácia vr. rozvíjajúcich sa trhov, TER 0,22%', zlozenie: '~3 700 spoločností z celého sveta vrátane emerging markets', vynos: '~8% p.a. (2000–2024)' }
         ],
         kratky: [
@@ -131,7 +131,10 @@ function vypocitaj() {
     })
 
     tabulkaHTML += `</tbody></table></div>
-        <p class="text-muted small text-center">* Historické výnosy nezaručujú budúce výsledky. Inflácia: ${inflacia}%</p>
+        <p class="text-muted small text-center mt-2">
+            * Historické výnosy nezaručujú budúce výsledky. Inflácia: ${inflacia}% &nbsp;
+            <span class="metodika-tip" style="cursor:help; border-bottom:1px dashed #aaa;">ℹ️ Zdroje &amp; metodika</span>
+        </p>
     `
 
     document.getElementById('tabulkaVysledkov').innerHTML = tabulkaHTML
@@ -174,7 +177,7 @@ function vypocitaj() {
     // Brokeri
     // Výpočet nákladov brokerov
     // Výnos podľa profilu
-    const vynosZaklad = rizikoPoupravene === 'agresivny' ? 0.14 : rizikoPoupravene === 'vyvazeny' ? 0.10 : 0.07
+    const vynosZaklad = rizikoPoupravene === 'agresivny' ? 0.14 : rizikoPoupravene === 'vyvazeny' ? 0.11 : 0.09
 
 // XTB - bez poplatkov
     const fvXTB = vypocitajFV(mesacna, roky, vynosZaklad)
@@ -385,6 +388,42 @@ function aktualizujLabely() {
 
 // Custom broker tooltip — event delegácia na statickom kontajneri
 const brokerTooltipEl = document.getElementById('broker-tooltip')
+
+const metaHtml = `
+<strong>📊 Zdroje a metodika</strong><br><br>
+Výnosy sú historické <strong>CAGR</strong> (geometrický priemer) 1985–2024,<br>
+vrátane reinvestovaných dividend (total return index), v USD.<br><br>
+<strong>NASDAQ 100 ~14%</strong> — NASDAQ / Bloomberg, total return<br>
+<strong>S&P 500 ~11%</strong> — S&P Global / Shiller data, total return<br>
+<strong>MSCI World ~9%</strong> — MSCI official index, net total return<br>
+<strong>Dlhopisy ~3%</strong> — ECB / Bloomberg Euro Govt Bond Index;<br>
+&nbsp;&nbsp;forward estimate podľa súčasných výnosov eurozóny<br><br>
+Reálna hodnota: r<sub>real</sub> = (1 + r<sub>nom</sub>) / (1 + i) − 1<br>
+aplikovaná mesačne na každý vklad zvlášť.`
+
+const tabulkaEl = document.getElementById('tabulkaVysledkov')
+
+tabulkaEl.addEventListener('mouseover', e => {
+    if (!e.target.closest('.metodika-tip')) return
+    brokerTooltipEl.innerHTML = metaHtml
+    brokerTooltipEl.classList.add('wide')
+    brokerTooltipEl.style.display = 'block'
+})
+tabulkaEl.addEventListener('mousemove', e => {
+    if (!e.target.closest('.metodika-tip')) return
+    brokerTooltipEl.style.left = (e.clientX + 14) + 'px'
+    brokerTooltipEl.style.top  = (e.clientY + 14) + 'px'
+})
+tabulkaEl.addEventListener('mouseleave', () => {
+    brokerTooltipEl.style.display = 'none'
+    brokerTooltipEl.classList.remove('wide')
+})
+tabulkaEl.addEventListener('mouseout', e => {
+    if (!e.target.closest('.metodika-tip')) {
+        brokerTooltipEl.style.display = 'none'
+        brokerTooltipEl.classList.remove('wide')
+    }
+})
 
 document.getElementById('brokeri').addEventListener('mouseover', e => {
     const tip = e.target.closest('.broker-tip')
