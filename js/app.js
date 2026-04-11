@@ -62,9 +62,15 @@ function vypocitajFV(mesacna, roky, vynos) {
     return mesacna * (((Math.pow(1 + r, n)) - 1) / r)
 }
 
-// Reálna hodnota po inflácii
-function realnaHodnota(fv, inflacia, roky) {
-    return fv / Math.pow(1 + inflacia / 100, roky)
+// Reálna hodnota po inflácii — správny výpočet cez reálnu úrokovú mieru
+// (každý mesačný vklad sa diskontuje iba infláciou za čas, počas ktorého rástol)
+function realnaHodnota(mesacna, roky, vynosRocny, inflaciaPercent) {
+    const rNom  = vynosRocny / 12
+    const rInf  = inflaciaPercent / 100 / 12
+    const rReal = (1 + rNom) / (1 + rInf) - 1
+    const n     = roky * 12
+    if (rReal === 0) return mesacna * n
+    return mesacna * ((Math.pow(1 + rReal, n) - 1) / rReal)
 }
 
 // Hlavná funkcia
@@ -110,7 +116,7 @@ function vypocitaj() {
 
     Object.values(indexy).forEach(index => {
         const fv = vypocitajFV(mesacna, roky, index.vynos)
-        const real = realnaHodnota(fv, inflacia, roky)
+        const real = realnaHodnota(mesacna, roky, index.vynos, inflacia)
         const zisk = fv - vlozene
 
         tabulkaHTML += `
@@ -298,7 +304,7 @@ function vykreslGraf(mesacna, roky, inflacia, riziko) {
         dataSp500.push(Math.round(vypocitajFV(mesacna, r, 0.10)))
         dataWorld.push(Math.round(vypocitajFV(mesacna, r, 0.07)))
         dataDlhopisy.push(Math.round(vypocitajFV(mesacna, r, 0.03)))
-        dataReal.push(Math.round(realnaHodnota(vypocitajFV(mesacna, r, vynosRealne), inflacia, r)))
+        dataReal.push(Math.round(realnaHodnota(mesacna, r, vynosRealne, inflacia)))
         dataVlozene.push(Math.round(mesacna * 12 * r))
     }
 
