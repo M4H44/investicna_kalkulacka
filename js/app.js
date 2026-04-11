@@ -25,32 +25,32 @@ const indexy = {
 const etfOdporucania = {
     agresivny: {
         dlhy: [
-            { etf: 'Invesco NASDAQ 100 UCITS ETF (EQQQ)', isin: 'IE0032077012', dovod: 'Najvyšší historický výnos ~14% p.a., TER 0,30%', zlozenie: '100 najväčších nefinančných US tech spoločností — Apple, Microsoft, Nvidia, Amazon...', vynos: '~14% p.a. (1985–2024)' },
-            { etf: 'iShares NASDAQ 100 UCITS ETF (CNDX)', isin: 'IE00B53SZB19', dovod: 'Alternatíva od iShares, rovnaký index, TER 0,33%', zlozenie: 'Rovnaké zloženie ako EQQQ — 100 nefinančných US tech titulov', vynos: '~14% p.a. (1985–2024)' }
+            { etf: 'Amundi NASDAQ-100 II UCITS ETF Acc (6AQQ)', isin: 'LU1681038243', dovod: 'Najvyšší historický výnos ~14% p.a., TER 0,23%, ACC — dostupné na XTB aj Trading 212 v EUR (Xetra: 6AQQ.DE)', zlozenie: '100 najväčších nefinančných US tech spoločností — Apple, Microsoft, Nvidia, Amazon...', vynos: '~14% p.a. (1985–2024)' },
+            { etf: 'iShares Core S&P 500 UCITS ETF Acc (CSP1)', isin: 'IE00B5BMR087', dovod: 'Stabilnejší ako NASDAQ, ~11% p.a., TER 0,07%, ACC — dostupné na XTB aj Trading 212 v EUR (Xetra: SXR8.DE)', zlozenie: '500 najväčších US spoločností naprieč všetkými sektormi', vynos: '~11% p.a. (1985–2024)' }
         ],
         kratky: [
-            { etf: 'iShares Core S&P 500 UCITS ETF (CSPX)', isin: 'IE00B5BMR087', dovod: 'Stabilnejší ako NASDAQ pre kratší horizont, TER 0,07%', zlozenie: '500 najväčších US spoločností naprieč všetkými sektormi', vynos: '~11% p.a. (1985–2024)' },
-            { etf: 'iShares Core MSCI World UCITS ETF (IWDA)', isin: 'IE00B4L5Y983', dovod: 'Globálna diverzifikácia, nižšie riziko, TER 0,20%', zlozenie: '~1 400 spoločností z 23 rozvinutých krajín (US, EU, JP...)', vynos: '~9% p.a. (1985–2024)' }
+            { etf: 'iShares Core S&P 500 UCITS ETF Acc (CSP1)', isin: 'IE00B5BMR087', dovod: 'Stabilný, likvidný, TER 0,07% — dostupné na XTB aj Trading 212 v EUR', zlozenie: '500 najväčších US spoločností naprieč všetkými sektormi', vynos: '~11% p.a. (1985–2024)' },
+            { etf: 'iShares Core MSCI World UCITS ETF Acc (IWDA)', isin: 'IE00B4L5Y983', dovod: 'Širšia diverzifikácia, nižšia volatilita, TER 0,20% — dostupné na XTB aj Trading 212 v EUR', zlozenie: '~1 400 spoločností z 23 rozvinutých krajín (US, EU, JP...)', vynos: '~9% p.a. (1985–2024)' }
         ]
     },
     vyvazeny: {
         dlhy: [
-            { etf: 'iShares Core S&P 500 UCITS ETF (CSPX)', isin: 'IE00B5BMR087', dovod: 'Dlhodobý výnos ~11% p.a., nižšia volatilita, TER 0,07%', zlozenie: '500 najväčších US spoločností naprieč všetkými sektormi', vynos: '~11% p.a. (1985–2024)' },
-            { etf: 'Vanguard FTSE All-World UCITS ETF (VWCE)', isin: 'IE00BK5BQT80', dovod: 'Širšia globálna diverzifikácia vr. rozvíjajúcich sa trhov, TER 0,22%', zlozenie: '~3 700 spoločností z celého sveta vrátane emerging markets (Čína, India...)', vynos: '~8% p.a. (2000–2024)' }
+            { etf: 'iShares Core S&P 500 UCITS ETF Acc (CSP1)', isin: 'IE00B5BMR087', dovod: 'Dlhodobý výnos ~11% p.a., nižšia volatilita, TER 0,07% — dostupné na XTB aj Trading 212 v EUR', zlozenie: '500 najväčších US spoločností naprieč všetkými sektormi', vynos: '~11% p.a. (1985–2024)' },
+            { etf: 'Vanguard FTSE All-World UCITS ETF Acc (VWCE)', isin: 'IE00BK5BQT80', dovod: 'Maximálna globálna diverzifikácia vr. rozvíjajúcich sa trhov, TER 0,22% — dostupné na XTB aj Trading 212 v EUR', zlozenie: '~3 700 spoločností z celého sveta vrátane emerging markets (Čína, India...)', vynos: '~9% p.a. (1985–2024)' }
         ],
         kratky: [
-            { etf: 'iShares Core MSCI World UCITS ETF (IWDA)', isin: 'IE00B4L5Y983', dovod: 'Rozvinuté trhy, nižšia volatilita, TER 0,20%', zlozenie: '~1 400 spoločností z 23 rozvinutých krajín (US, EU, JP...)', vynos: '~9% p.a. (1985–2024)' },
-            { etf: 'Vanguard FTSE All-World UCITS ETF (VWCE)', isin: 'IE00BK5BQT80', dovod: 'Maximálna diverzifikácia vr. rozvíjajúcich sa trhov, TER 0,22%', zlozenie: '~3 700 spoločností z celého sveta vrátane emerging markets', vynos: '~8% p.a. (2000–2024)' }
+            { etf: 'iShares Core MSCI World UCITS ETF Acc (IWDA)', isin: 'IE00B4L5Y983', dovod: 'Rozvinuté trhy, nižšia volatilita, TER 0,20% — dostupné na XTB aj Trading 212 v EUR', zlozenie: '~1 400 spoločností z 23 rozvinutých krajín (US, EU, JP...)', vynos: '~9% p.a. (1985–2024)' },
+            { etf: 'Vanguard FTSE All-World UCITS ETF Acc (VWCE)', isin: 'IE00BK5BQT80', dovod: 'Širšia diverzifikácia vr. rozvíjajúcich sa trhov, TER 0,22% — dostupné na XTB aj Trading 212 v EUR', zlozenie: '~3 700 spoločností z celého sveta vrátane emerging markets', vynos: '~9% p.a. (1985–2024)' }
         ]
     },
     konzervativny: {
         dlhy: [
-            { etf: 'iShares Core MSCI World UCITS ETF (IWDA)', isin: 'IE00B4L5Y983', dovod: 'Rozvinuté trhy ~9% p.a., nižšie riziko ako S&P 500, TER 0,20%', zlozenie: '~1 400 spoločností z 23 rozvinutých krajín (US, EU, JP...)', vynos: '~9% p.a. (1985–2024)' },
-            { etf: 'Vanguard FTSE All-World UCITS ETF (VWCE)', isin: 'IE00BK5BQT80', dovod: 'Maximálna diverzifikácia vr. rozvíjajúcich sa trhov, TER 0,22%', zlozenie: '~3 700 spoločností z celého sveta vrátane emerging markets', vynos: '~8% p.a. (2000–2024)' }
+            { etf: 'iShares Core MSCI World UCITS ETF Acc (IWDA)', isin: 'IE00B4L5Y983', dovod: 'Rozvinuté trhy ~9% p.a., nižšie riziko ako S&P 500, TER 0,20% — dostupné na XTB aj Trading 212 v EUR', zlozenie: '~1 400 spoločností z 23 rozvinutých krajín (US, EU, JP...)', vynos: '~9% p.a. (1985–2024)' },
+            { etf: 'Vanguard FTSE All-World UCITS ETF Acc (VWCE)', isin: 'IE00BK5BQT80', dovod: 'Maximálna diverzifikácia vr. rozvíjajúcich sa trhov, TER 0,22% — dostupné na XTB aj Trading 212 v EUR', zlozenie: '~3 700 spoločností z celého sveta vrátane emerging markets', vynos: '~9% p.a. (1985–2024)' }
         ],
         kratky: [
-            { etf: 'iShares Core Euro Govt Bond UCITS ETF (IEAG)', isin: 'IE00B4WXJJ64', dovod: 'Štátne dlhopisy eurozóny, nízke riziko, TER 0,09%', zlozenie: 'Štátne dlhopisy Nemecka, Francúzska, Talianska, Španielska a ďalších krajín EÚ', vynos: '~3% p.a. (2000–2024)' },
-            { etf: 'Vanguard EUR Eurozone Govt Bond UCITS ETF (VETY)', isin: 'IE00BZ163L38', dovod: 'Alternatíva od Vanguard, nižší TER, TER 0,07%', zlozenie: 'Štátne dlhopisy krajín eurozóny, podobné zloženie ako IEAG', vynos: '~3% p.a. (2000–2024)' }
+            { etf: 'iShares Core Euro Govt Bond UCITS ETF (IEAG)', isin: 'IE00B4WXJJ64', dovod: 'Štátne dlhopisy eurozóny, nízke riziko, TER 0,09%. ⚠️ Distribučný (DIS) — kupóny vyplácané pravidelne, treba ručne reinvestovať.', zlozenie: 'Štátne dlhopisy Nemecka, Francúzska, Talianska, Španielska a ďalších krajín EÚ', vynos: '~3% p.a. (forward estimate)' },
+            { etf: 'Vanguard EUR Eurozone Govt Bond UCITS ETF (VETY)', isin: 'IE00BZ163H91', dovod: 'Alternatíva od Vanguard, nižší TER 0,07%. ⚠️ Distribučný (DIS) — kupóny vyplácané pravidelne, treba ručne reinvestovať.', zlozenie: 'Štátne dlhopisy krajín eurozóny — podobné zloženie ako IEAG', vynos: '~3% p.a. (forward estimate)' }
         ]
     }
 }
