@@ -585,5 +585,201 @@ applied monthly to each contribution separately.`,
     rule5Title: 'Start sooner, not better — don\'t wait',
     rule5Desc: 'Time in the market is more valuable than timing the market. Compound interest works miracles.',
     eduCtaBtn: '🚀 Try the calculator'
+  },
+
+  hu: {
+    // Page titles
+    pageTitle: 'Befektetési kalkulátor',
+    eduPageTitle: 'Befektetés alapjai – Befektetési kalkulátor',
+
+    // Nav / shared
+    navBrand: '📈 Befektetési kalkulátor',
+    navEdu: '📖 Befektetés alapjai',
+    navCalc: '🧮 Kalkulátor',
+
+    // Index page static
+    ctaBtn: '📖 Kezdő befektető? Kezdd itt →',
+    h1: 'Mennyim lesz X év múlva?',
+    subheading: 'Add meg a paramétereket és tudd meg befektetéseid reális értékét',
+    labelMesacna: 'Havi befektetés:',
+    labelRoky: 'Befektetési évek száma:',
+    labelVek: 'Az ön kora:',
+    labelInflacia: 'Éves infláció:',
+    labelRiziko: 'Kockázati profil',
+    optKonzerv: 'Konzervatív',
+    optVyvazeny: 'Kiegyensúlyozott',
+    optAgresivny: 'Agresszív',
+    cardResults: '📊 Eredmények index szerint',
+    cardEtf: '✅ Ajánlott ETF-ek',
+    cardChart: '📈 Befektetés alakulása időben',
+    cardBrokers: '🏦 Bróker összehasonlítás',
+
+    // Range hint labels
+    rangeRokyMin: '1 év',
+    rangeRokyMax: '50 év',
+
+    // Footer
+    footerAboutTitle: '📈 Befektetési kalkulátor',
+    footerAboutText: 'Ingyenes oktatási eszköz EU-s hosszú távú befektetők számára. Segítünk megérteni a kamatos kamat erejét és eligazodni az ETF-ek világában.',
+    footerSources: 'Adatforrások: MSCI, S&P Global, NASDAQ, ECB.',
+    footerLegalTitle: '⚖️ Jogi nyilatkozat',
+    footerLegal1: 'Ez az oldal <strong class="text-white">kizárólag oktatási célokat</strong> szolgál, és nem minősül befektetési tanácsadásnak a MiFID II irányelv értelmében.',
+    footerLegal2: 'A historikus hozamok <strong class="text-white">nem garantálják</strong> a jövőbeli eredményeket. A befektetés értéke csökkenhet és növekedhet. A befektetés a tőke részleges vagy teljes elvesztésének kockázatával jár.',
+    footerLegal3: 'Bármilyen befektetési döntés előtt javasoljuk engedéllyel rendelkező pénzügyi tanácsadóval való konzultációt.',
+    footerCopy: '© 2026 Befektetési kalkulátor — nem vagyunk engedéllyel rendelkező befektetési tanácsadók | Nem vagyunk egyetlen bróker fiókja vagy partnere sem',
+
+    // Dynamic strings
+    thIndex: 'Index',
+    thVlozene: 'Befizetve',
+    thNominalne: 'Nominális',
+    thRealne: 'Reális (infláció után)',
+    thZisk: 'Nyereség',
+    inflaciaNote: '* A historikus hozamok nem garantálják a jövőbeli eredményeket. Infláció: ',
+    metaLabel: 'ℹ️ Források & módszertan',
+    metaHtml: `<strong>📊 Források és módszertan</strong><br><br>
+A hozamok historikus <strong>CAGR</strong> (geometriai átlag) 1985–2024,<br>
+az újrabefektetett osztalékokat is beleértve (total return index), USD-ben.<br><br>
+<strong>NASDAQ 100 ~14%</strong> — NASDAQ / Bloomberg, total return<br>
+<strong>S&P 500 ~11%</strong> — S&P Global / Shiller adatok, total return<br>
+<strong>MSCI World ~9%</strong> — MSCI official index, net total return<br>
+<strong>Kötvények ~3%</strong> — ECB / Bloomberg Euro Govt Bond Index;<br>
+&nbsp;&nbsp;előremenő becslés az euróövezet jelenlegi hozamai alapján<br><br>
+Reális érték: r<sub>real</sub> = (1 + r<sub>nom</sub>) / (1 + i) − 1<br>
+havonta alkalmazva minden egyes befizetésre.`,
+    volba1: '1. választás',
+    volba2: '2. választás',
+    isinLabel: 'ISIN:',
+    precoLabel: 'Miért?',
+    etfDisclaimer: '⚠️ Ez nem befektetési tanácsadás. Az információk kizárólag oktatási célokat szolgálnak.',
+    warn1Rok: '⚠️ 1 éves horizont esetén kockázati profiltól függetlenül kötvényeket ajánlunk.',
+    warnKratkyPrefix: '💡 ',
+    warnKratkySuffix: ' éves horizont esetén konzervatívabb megközelítést ajánlunk, mint hosszú távú befektetésnél.',
+    thBroker: 'Bróker',
+    thPoplatkyETF: 'ETF<br>díjak',
+    thDostupnost: 'Elérhetőség',
+    thJazyk: 'Nyelv',
+    thNakladyPrefix: 'Költségek ',
+    thNakladySuffix: ' év alatt',
+    thZostatok: 'Egyenleg (nominális)',
+    thUcet: 'Fiók',
+    otvorUcet: 'Fiók nyitása',
+    dostupnostEU: 'Egész EU',
+    dostupnostPartial: '18 EU ország',
+    dostupnostSKCZ: 'SK/CZ',
+    brokerNotePrefix: '* Költségek számítva ',
+    brokerNoteMid: '/hó összeg alapján ',
+    brokerNoteSuffix: ' évre. Hozam: ',
+    brokerNoteEnd: '% p.a. Nominális értékek.',
+    chartDlhopisy: 'Kötvények (3%)',
+    chartVlozene: 'Befizetve',
+    chartNasdaqReal: 'NASDAQ reális',
+    chartSP500Real: 'S&P 500 reális',
+    chartMSCIReal: 'MSCI World reális',
+    chartYearShort: 'é.',
+    indexDlhopisy: 'Kötvények',
+    regulaciaLabel: 'Szabályozás:',
+    ochranaLabel: 'Védelem:',
+    zlozenieLabel: 'Összetétel:',
+    priemerVynosLabel: 'Átlagos hozam:',
+
+    // Broker meta
+    brokerMeta: {
+      xtb:   { regulacia: 'KNF (Lengyelország), EU engedély', ochrana: 'ICF legfeljebb 20 000 €', poznamka: 'Az ügyfelek vagyona el van különítve az XTB vagyonától. Az ETF-ek az ön tulajdonában lévő értékpapírok — az XTB csak közvetítő. Bróker csődje esetén az ETF-ek visszakerülnek önhöz.' },
+      t212:  { regulacia: 'FCA (UK), CySEC (Ciprus)', ochrana: 'ICF legfeljebb 20 000 €', poznamka: 'Az ETF-eket független letétkezelő kezeli (Interactive Brokers UK). Az ön vagyona nem tartozik a Trading 212-höz. Közvetítő, nem vagyonkezelő.' },
+      degiro:{ regulacia: 'AFM / DNB (Hollandia)', ochrana: 'ICF legfeljebb 20 000 €', poznamka: 'Az ETF-eket a Stichting DEGIRO különálló jogi entitásban tartják — elkülönítve a bróker vagyonától. Értékpapírjai a DEGIRO csődje esetén is védve vannak.' },
+      tr:    { regulacia: 'BaFin (Németország) — banki engedély', ochrana: 'Betétek legfeljebb 100 000 € (banki betét) + ICF legfeljebb 20 000 €', poznamka: 'A Trade Republic egy német bank. Az ETF-ek mint értékpapírok el vannak különítve a bank mérlegétől, és önhöz tartoznak, nem a bankhoz.' },
+      etoro: { regulacia: 'CySEC (Ciprus), FCA (UK)', ochrana: 'ICF legfeljebb 20 000 €', poznamka: 'Az ügyfelek vagyona el van különítve az eToro vagyonától. Az ETF-ek az ügyfél tulajdonában vannak. Az eToro közvetítő — az ETF kibocsátója az iShares, Vanguard stb.' },
+      portu: { regulacia: 'ČNB (Csehország)', ochrana: 'ICF legfeljebb 20 000 €', poznamka: 'Az ügyfelek vagyonát letétkezelőnél (Raiffeisen Bank) tárolják. A Portu kezeli a portfóliót, de az ETF-ek az ön tulajdonában vannak, nem a Portuéban.' }
+    },
+
+    // ETF descriptions
+    etf: {
+      'LU1681038243': {
+        dovod: 'Legmagasabb historikus hozam ~14% p.a., TER 0,23%, ACC — elérhető XTB-n és Trading 212-n EUR-ban (Xetra: 6AQQ.DE)',
+        zlozenie: '100 legnagyobb nem pénzügyi US tech vállalat — Apple, Microsoft, Nvidia, Amazon...'
+      },
+      'IE00B5BMR087': {
+        dovod: 'Stabilabb mint a NASDAQ, ~11% p.a., TER 0,07%, ACC — elérhető XTB-n és Trading 212-n EUR-ban (Xetra: SXR8.DE)',
+        zlozenie: '500 legnagyobb US vállalat minden szektorban'
+      },
+      'IE00B4L5Y983': {
+        dovod: 'Globális diverzifikáció, alacsonyabb volatilitás, TER 0,20%, ACC — elérhető XTB-n és Trading 212-n EUR-ban',
+        zlozenie: '~1 400 vállalat 23 fejlett országból (US, EU, JP...)'
+      },
+      'IE00BK5BQT80': {
+        dovod: 'Maximális diverzifikáció feltörekvő piacokkal együtt, TER 0,22%, ACC — elérhető XTB-n és Trading 212-n EUR-ban',
+        zlozenie: '~3 700 vállalat az egész világról, feltörekvő piacokat is beleértve'
+      },
+      'IE00B4WXJJ64': {
+        dovod: 'Euróövezeti állampapírok, alacsony kockázat, TER 0,07%. ⚠️ Osztalékfizető (DIS) — kuponokat rendszeresen fizetik, manuálisan kell újrabefektetni.',
+        zlozenie: 'Németország, Franciaország, Olaszország, Spanyolország és más EU-s országok állampapírjai'
+      },
+      'IE00BZ163H91': {
+        dovod: 'Vanguard alternatíva, TER 0,07%. ⚠️ Osztalékfizető (DIS) — kuponokat rendszeresen fizetik, manuálisan kell újrabefektetni.',
+        zlozenie: 'Euróövezeti országok állampapírjai — hasonló összetétel mint az IEAG'
+      }
+    },
+
+    // vzdelavanie.html
+    eduNavBrand: '📈 Befektetési kalkulátor',
+    eduH1: '📖 Befektetés alapjai',
+    eduSubtitle: 'Értsd meg a kulcsfogalmakat, mielőtt befekteted az első eurót',
+    triH2: 'A befektetési háromszög',
+    triIntro: 'Minden befektetés három tulajdonság között egyensúlyoz. Nem lehet mindhárom egyszerre — mindig fel kell áldoznod valamit.',
+    triVynos: 'Hozam',
+    triLikvidita: 'Likviditás',
+    triRiziko: 'Kockázat',
+    triVynosTitle: 'Hozam',
+    triVynosDesc: 'Mennyit keresel. A magasabb hozam általában magasabb kockázatot vagy alacsonyabb likviditást jelent. Részvények historikusan ~7–14% évente, kötvények ~2–4%.',
+    triRizikoTitle: 'Kockázat',
+    triRizikoDesc: 'Annak esélye, hogy elveszíted a pénzed egy részét. A biztonságosabb befektetések alacsonyabb hozamot hoznak. A kockázat hatékonyan csökken hosszabb időtávval.',
+    triLikviditaTitle: 'Likviditás',
+    triLikviditaDesc: 'Milyen gyorsan veheted ki a pénzt veszteség nélkül. A tőzsdén kereskedett ETF-ek rendkívül likvidek — másodpercek alatt eladhatók bármikor.',
+    exDlhopisyTitle: 'Példa: Állampapírok',
+    exDlhopisyText: '✅ Alacsony kockázat &nbsp; ✅ Magas likviditás &nbsp; ❌ Alacsony hozam',
+    exSP500Title: 'Példa: Részvény ETF (S&P 500)',
+    exSP500Text: '⚠️ Közepes kockázat &nbsp; ✅ Magas likviditás &nbsp; ✅ Magas hozam',
+    exNehnutoTitle: 'Példa: Ingatlan',
+    exNehnutoText: '✅ Alacsony kockázat &nbsp; ❌ Alacsony likviditás &nbsp; ✅ Tisztességes hozam',
+    riskH2: 'A befektetési kockázat típusai',
+    riskIntro: 'Nem minden kockázat egyforma. Néhányat ki lehet küszöbölni, másokat nem.',
+    riskMarketTitle: '📉 Piaci kockázat',
+    riskMarketDesc: 'Az egész piac esik — pl. recesszió vagy pandémia idején. Egyszerre érinti az összes befektetőt.',
+    riskMarketBadge1: 'Nem küszöbölhető ki',
+    riskMarketBadge2: 'Hosszabb időtávval csökken',
+    riskCompanyTitle: '🏢 Vállalati kockázat',
+    riskCompanyDesc: 'Egy vállalat csődbe megy (pl. Enron, Wirecard). Ha csak azt tartod, mindent elveszítesz.',
+    riskCompanyBadge1: 'Diverzifikációval kiküszöbölhető — pl. a NASDAQ 100 ETF 100 US vállalatba fektet',
+    riskCurrencyTitle: '💱 Devizakockázat',
+    riskCurrencyDesc: 'Ha USD-ben fektetsz be és az euró erősödik, az eurós hozamod csökken. EU-s befektetők számára valós kockázat.',
+    riskCurrencyBadge1: 'Részben kezelhető — fektess EUR-denominált ETF-ekbe',
+    riskInflationTitle: '🔥 Inflációs kockázat',
+    riskInflationDesc: 'A megtakarítási számlán lévő pénz elveszíti a vásárlóerejét. 3%-os éves infláció = megtakarításaid reálisan csökkennek.',
+    riskInflationBadge1: 'Nem hagyható figyelmen kívül',
+    riskInflationBadge2: 'A részvények hosszú távon felülmúlják',
+    riskTimingTitle: '⏳ Időzítési kockázat',
+    riskTimingDesc: 'Rossz időben adsz el — pl. összeomlás idején. A „piac időzítésének" kísérlete szinte mindig kudarcba fullad.',
+    riskTimingBadge1: 'Rendszeres befektetéssel oldható meg, lehetőleg havonta 1× (DCA)',
+    riskCounterTitle: '🏦 Partnerkockázat',
+    riskCounterDesc: 'A bróker csődbe megy. Ezért fontosak a szabályozás és a betétvédelem (SIPC, FSCS, ICS). Ha a bróker csődbe megy, nem veszítesz semmit — a pénzed az ETF-ben van, nem a brókernél.',
+    riskCounterBadge1: 'A szabályozás csökkenti',
+    etfH2: 'Mi az ETF és miért népszerű?',
+    etfDesc: '<strong>Az ETF (Exchange Traded Fund)</strong> egy tőzsdén kereskedett alap, amely egy indexet követ — pl. az S&amp;P 500 az 500 legnagyobb amerikai céget tartalmazza. Egy ETF megvásárlásával mindegyikükben kis részesedést szerzel egyszerre.',
+    etfProsTitle: '✅ Az ETF előnyei',
+    etfProsContent: 'Alacsony díjak (TER 0,07–0,2%)<br>Azonnali diverzifikáció<br>Magas likviditás<br>Elérhető 1 €-tól',
+    etfConsTitle: '⚠️ Mire kell figyelni',
+    etfConsContent: 'Az érték naponta ingadozik<br>Pánikban az emberek olcsón adnak el<br>Az alap devizája vs. a te devizád — fektess euróban<br>Az ACC (felhalmozó) alapok automatikusan újrabefektetik az osztalékot a DIS-sel szemben',
+    rulesH2: '5 aranyszabály a hosszú távú befektető számára',
+    rule1Title: 'Fektess be rendszeresen, ne alkalmanként — havonta egyszer',
+    rule1Desc: 'A DCA (dollar-cost averaging) csökkenti a rossz piaci időzítés kockázatát.',
+    rule2Title: 'Diverzifikálj — ne tedd az összes tojást egy kosárba',
+    rule2Desc: 'Egy globális index ETF egyszerre 1 600+ vállalatban ad részesedést.',
+    rule3Title: 'Hosszabb időtáv = kisebb tényleges kockázat',
+    rule3Desc: 'Az S&P 500 soha nem csökkent egyetlen 20 éves időszak alatt sem a történelemben.',
+    rule4Title: 'Ne kövesd a piacot minden nap',
+    rule4Desc: 'A rövid távú ingadozások normálisak. A pánik a legdrágább befektetési hiba.',
+    rule5Title: 'Kezdj el hamarabb, ne jobbkor — ne várakozz',
+    rule5Desc: 'A piacon töltött idő értékesebb, mint a piac időzítése. A kamatos kamat csodákat tesz.',
+    eduCtaBtn: '🚀 Próbáld ki a kalkulátort'
   }
 }
