@@ -11,6 +11,59 @@ function brokerTooltip(klic) {
     return `<strong>${t('regulaciaLabel')}</strong> ${b.regulacia}<br><strong>${t('ochranaLabel')}</strong> ${b.ochrana}<br><br>${b.poznamka}`
 }
 
+/** Registrácia podľa jazyka rozhrania (getLang), nie podľa IP. */
+const BROKER_SIGNUP_URLS = {
+    xtb: {
+        sk: 'https://www.xtb.com/sk',
+        cz: 'https://www.xtb.com/cz',
+        pl: 'https://www.xtb.com/pl',
+        hu: 'https://www.xtb.com/hu',
+        en: 'https://www.xtb.com/int'
+    },
+    t212: {
+        sk: 'https://www.trading212.com/sk',
+        cz: 'https://www.trading212.com/cs',
+        pl: 'https://www.trading212.com/pl',
+        hu: 'https://www.trading212.com/hu',
+        en: 'https://www.trading212.com/en'
+    },
+    tr: {
+        sk: 'https://www.traderepublic.com/en-sk',
+        cz: 'https://www.traderepublic.com/en-de',
+        pl: 'https://www.traderepublic.com/en-pl',
+        hu: 'https://www.traderepublic.com/en-de',
+        en: 'https://www.traderepublic.com'
+    },
+    degiro: {
+        sk: 'https://www.degiro.sk',
+        cz: 'https://www.degiro.cz',
+        pl: 'https://www.degiro.pl',
+        hu: 'https://www.degiro.co.uk',
+        en: 'https://www.degiro.co.uk'
+    },
+    etoro: {
+        sk: 'https://www.etoro.com/sk/',
+        cz: 'https://www.etoro.com/en/',
+        pl: 'https://www.etoro.com/pl/',
+        hu: 'https://www.etoro.com/hu/',
+        en: 'https://www.etoro.com/en/'
+    },
+    portu: {
+        sk: 'https://www.portu.sk',
+        cz: 'https://www.portu.cz',
+        pl: 'https://www.portu.sk',
+        hu: 'https://www.portu.sk',
+        en: 'https://www.portu.sk'
+    }
+}
+
+function brokerSignupUrl(brokerId) {
+    const lang = typeof getLang === 'function' ? getLang() : 'sk'
+    const row = BROKER_SIGNUP_URLS[brokerId]
+    if (!row) return '#'
+    return row[lang] || row.sk || row.en || Object.values(row)[0]
+}
+
 // Odporúčania ETF podľa profilu
 const dlhopisy = [
     { etf: 'iShares Core Euro Govt Bond UCITS ETF (IEAG)', isin: 'IE00B4WXJJ64', vynos: '~3% p.a. (forward estimate)' },
@@ -213,7 +266,7 @@ function vypocitaj() {
                 <td class="hide-mobile">SK/CZ/PL/DE</td>
                 <td class="text-success fw-bold">${formatEur(nakladyXTB)}</td>
                 <td class="hide-mobile fw-bold">${formatEur(fvXTB)}</td>
-                <td><a href="https://www.xtb.com/sk" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
+                <td><a href="${brokerSignupUrl('xtb')}" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
             </tr>
             <tr class="table-success">
                 <td><strong class="broker-tip" data-broker="t212">Trading 212</strong> ⭐</td>
@@ -222,7 +275,7 @@ function vypocitaj() {
                 <td class="hide-mobile">SK/EN</td>
                 <td class="text-success fw-bold">${formatEur(nakladyT212)}</td>
                 <td class="hide-mobile fw-bold">${formatEur(fvT212)}</td>
-                <td><a href="https://www.trading212.com" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
+                <td><a href="${brokerSignupUrl('t212')}" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
             </tr>
             <tr>
                 <td><strong class="broker-tip" data-broker="tr">Trade Republic</strong></td>
@@ -231,7 +284,7 @@ function vypocitaj() {
                 <td class="hide-mobile">SK/DE/FR</td>
                 <td class="text-warning fw-bold">-${formatEur(nakladyTR)}</td>
                 <td class="hide-mobile fw-bold">${formatEur(fvTR)}</td>
-                <td><a href="https://www.traderepublic.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
+                <td><a href="${brokerSignupUrl('tr')}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
             </tr>
             <tr>
                 <td><strong class="broker-tip" data-broker="degiro">DEGIRO</strong></td>
@@ -240,7 +293,7 @@ function vypocitaj() {
                 <td class="hide-mobile">SK/EN</td>
                 <td class="text-warning fw-bold">-${formatEur(nakladyDegiro)}</td>
                 <td class="hide-mobile fw-bold">${formatEur(fvDegiro)}</td>
-                <td><a href="https://www.degiro.sk" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
+                <td><a href="${brokerSignupUrl('degiro')}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
             </tr>
             <tr>
                 <td><strong class="broker-tip" data-broker="etoro">eToro</strong></td>
@@ -249,7 +302,7 @@ function vypocitaj() {
                 <td class="hide-mobile">EN</td>
                 <td class="text-warning fw-bold">-${formatEur(nakladyeToro)}</td>
                 <td class="hide-mobile fw-bold">${formatEur(fveToro)}</td>
-                <td><a href="https://www.etoro.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
+                <td><a href="${brokerSignupUrl('etoro')}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
             </tr>
             <tr>
                 <td><strong class="broker-tip" data-broker="portu">Portu</strong></td>
@@ -258,7 +311,7 @@ function vypocitaj() {
                 <td class="hide-mobile">SK/CZ</td>
                 <td class="text-danger fw-bold">-${formatEur(nakladyPortu)}</td>
                 <td class="hide-mobile fw-bold">${formatEur(fvPortu)}</td>
-                <td><a href="https://www.portu.sk" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
+                <td><a href="${brokerSignupUrl('portu')}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
             </tr>
         </tbody>
     </table>
