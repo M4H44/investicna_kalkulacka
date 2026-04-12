@@ -82,9 +82,8 @@ function vypocitaj() {
     const inflacia = parseFloat(document.getElementById('inflacia').value)
     const riziko = document.getElementById('riziko').value
     const horizont = roky <= 1 ? 'rok1' : roky <= 4 ? 'kratky' : 'dlhy'
-    const vek = parseInt(document.getElementById('vek').value)
 
-    if (isNaN(mesacna) || isNaN(roky) || isNaN(inflacia) || isNaN(vek)) return
+    if (isNaN(mesacna) || isNaN(roky) || isNaN(inflacia)) return
     if (mesacna <= 0 || roky <= 0) return
 
     const rizikoPoupravene = riziko
@@ -135,7 +134,7 @@ function vypocitaj() {
 
     // Odporúčanie ETF
     const odporucania = etfOdporucania[rizikoPoupravene][horizont]
-    const vekInfo = roky <= 1
+    const horizontUpozornenie = roky <= 1
         ? `<p class="text-warning small">${t('warn1Rok')}</p>`
         : roky <= 4
             ? `<p class="text-info small">${t('warnKratkyPrefix')}${roky} ${pluralYear(roky)}${t('warnKratkySuffix')}</p>`
@@ -163,7 +162,7 @@ function vypocitaj() {
     }).join('')
 
     document.getElementById('odporucanie').innerHTML = `
-    ${vekInfo}
+    ${horizontUpozornenie}
     ${etfKarty}
     <p class="text-muted small mb-0">${t('etfDisclaimer')}</p>
 `
@@ -351,19 +350,15 @@ function vykreslGraf(mesacna, roky, inflacia, riziko) {
 function aktualizujLabely() {
     const mesacna = parseFloat(document.getElementById('mesacnaInvesticia').value)
     const roky = parseInt(document.getElementById('pocetRokov').value)
-    const vek = parseInt(document.getElementById('vek').value)
     const inflacia = parseFloat(document.getElementById('inflacia').value)
 
     document.getElementById('labelMesacna').textContent = formatEur(mesacna)
     document.getElementById('labelRoky').textContent = roky + ' ' + pluralYear(roky)
-    document.getElementById('labelVek').textContent = getLang() === 'en'
-        ? vek + ' years old'
-        : vek + ' ' + pluralYear(vek)
     document.getElementById('labelInflacia').textContent = inflacia.toFixed(2).replace('.', ',') + ' %'
 }
 
 // Event listenery — live výpočet
-;['mesacnaInvesticia', 'pocetRokov', 'vek', 'inflacia', 'riziko'].forEach(id => {
+;['mesacnaInvesticia', 'pocetRokov', 'inflacia', 'riziko'].forEach(id => {
     document.getElementById(id).addEventListener('input', () => {
         aktualizujLabely()
         vypocitaj()
