@@ -213,7 +213,7 @@ function vypocitaj() {
                 <td class="hide-mobile">SK/CZ/PL/DE</td>
                 <td class="text-success fw-bold">${formatEur(nakladyXTB)}</td>
                 <td class="hide-mobile fw-bold">${formatEur(fvXTB)}</td>
-                <td><a href="https://www.xtb.com/sk" target="_blank" class="btn btn-success btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
+                <td><a href="https://www.xtb.com/sk" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
             </tr>
             <tr class="table-success">
                 <td><strong class="broker-tip" data-broker="t212">Trading 212</strong> ⭐</td>
@@ -222,7 +222,7 @@ function vypocitaj() {
                 <td class="hide-mobile">SK/EN</td>
                 <td class="text-success fw-bold">${formatEur(nakladyT212)}</td>
                 <td class="hide-mobile fw-bold">${formatEur(fvT212)}</td>
-                <td><a href="https://www.trading212.com" target="_blank" class="btn btn-success btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
+                <td><a href="https://www.trading212.com" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
             </tr>
             <tr>
                 <td><strong class="broker-tip" data-broker="tr">Trade Republic</strong></td>
@@ -231,7 +231,7 @@ function vypocitaj() {
                 <td class="hide-mobile">SK/DE/FR</td>
                 <td class="text-warning fw-bold">-${formatEur(nakladyTR)}</td>
                 <td class="hide-mobile fw-bold">${formatEur(fvTR)}</td>
-                <td><a href="https://www.traderepublic.com" target="_blank" class="btn btn-outline-primary btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
+                <td><a href="https://www.traderepublic.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
             </tr>
             <tr>
                 <td><strong class="broker-tip" data-broker="degiro">DEGIRO</strong></td>
@@ -240,7 +240,7 @@ function vypocitaj() {
                 <td class="hide-mobile">SK/EN</td>
                 <td class="text-warning fw-bold">-${formatEur(nakladyDegiro)}</td>
                 <td class="hide-mobile fw-bold">${formatEur(fvDegiro)}</td>
-                <td><a href="https://www.degiro.sk" target="_blank" class="btn btn-outline-primary btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
+                <td><a href="https://www.degiro.sk" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
             </tr>
             <tr>
                 <td><strong class="broker-tip" data-broker="etoro">eToro</strong></td>
@@ -249,7 +249,7 @@ function vypocitaj() {
                 <td class="hide-mobile">EN</td>
                 <td class="text-warning fw-bold">-${formatEur(nakladyeToro)}</td>
                 <td class="hide-mobile fw-bold">${formatEur(fveToro)}</td>
-                <td><a href="https://www.etoro.com" target="_blank" class="btn btn-outline-primary btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
+                <td><a href="https://www.etoro.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
             </tr>
             <tr>
                 <td><strong class="broker-tip" data-broker="portu">Portu</strong></td>
@@ -258,7 +258,7 @@ function vypocitaj() {
                 <td class="hide-mobile">SK/CZ</td>
                 <td class="text-danger fw-bold">-${formatEur(nakladyPortu)}</td>
                 <td class="hide-mobile fw-bold">${formatEur(fvPortu)}</td>
-                <td><a href="https://www.portu.sk" target="_blank" class="btn btn-outline-primary btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
+                <td><a href="https://www.portu.sk" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
             </tr>
         </tbody>
     </table>
