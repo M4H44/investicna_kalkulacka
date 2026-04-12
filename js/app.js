@@ -285,15 +285,19 @@ function vykreslGraf(mesacna, roky, inflacia, riziko) {
     const dataDlhopisy = []
     const dataVlozene = []
 
-    const vynosRealne = riziko === 'agresivny' ? 0.14 : riziko === 'vyvazeny' ? 0.10 : 0.07
+    const vynosRealne = riziko === 'agresivny'
+        ? indexy.nasdaq.vynos
+        : riziko === 'vyvazeny'
+            ? indexy.sp500.vynos
+            : indexy.world.vynos
     const labelRealne = riziko === 'agresivny' ? t('chartNasdaqReal') : riziko === 'vyvazeny' ? t('chartSP500Real') : t('chartMSCIReal')
 
     for (let r = 1; r <= roky; r++) {
         labels.push(`${r} ${t('chartYearShort')}`)
-        dataNasdaq.push(Math.round(vypocitajFV(mesacna, r, 0.14)))
-        dataSp500.push(Math.round(vypocitajFV(mesacna, r, 0.10)))
-        dataWorld.push(Math.round(vypocitajFV(mesacna, r, 0.07)))
-        dataDlhopisy.push(Math.round(vypocitajFV(mesacna, r, 0.03)))
+        dataNasdaq.push(Math.round(vypocitajFV(mesacna, r, indexy.nasdaq.vynos)))
+        dataSp500.push(Math.round(vypocitajFV(mesacna, r, indexy.sp500.vynos)))
+        dataWorld.push(Math.round(vypocitajFV(mesacna, r, indexy.world.vynos)))
+        dataDlhopisy.push(Math.round(vypocitajFV(mesacna, r, indexy.dlhopisy.vynos)))
         dataReal.push(Math.round(realnaHodnota(mesacna, r, vynosRealne, inflacia)))
         dataVlozene.push(Math.round(mesacna * 12 * r))
     }
