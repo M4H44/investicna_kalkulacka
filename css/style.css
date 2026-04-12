@@ -200,3 +200,15 @@ h1 {
     color: rgba(255,255,255,0.3);
     font-size: 0.75rem;
 }
+
+/* Language switcher */
+.lang-btn {
+  padding: 2px 6px;
+  font-size: 1rem;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 6px;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+.lang-btn:hover, .lang-btn.active { opacity: 1; border-color: rgba(255,255,255,0.8); }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="sk">
+<html lang="sk" id="htmlRoot">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,19 +13,26 @@
 
 <nav class="navbar navbar-dark bg-dark">
     <div class="container d-flex justify-content-between align-items-center">
-        <a class="navbar-brand fw-bold text-decoration-none" href="index.html">📈 Investičná kalkulačka</a>
-        <a href="vzdelavanie.html" class="btn btn-outline-light btn-sm fw-semibold">📖 Základy investovania</a>
+        <a class="navbar-brand fw-bold text-decoration-none" href="index.html" data-i18n="navBrand">📈 Investičná kalkulačka</a>
+        <div class="d-flex align-items-center gap-2">
+            <a href="vzdelavanie.html" class="btn btn-outline-light btn-sm fw-semibold" data-i18n="navEdu">📖 Základy investovania</a>
+            <div class="d-flex gap-1 ms-2">
+                <button class="btn btn-sm lang-btn" data-lang="sk" onclick="setLang('sk')">🇸🇰</button>
+                <button class="btn btn-sm lang-btn" data-lang="cz" onclick="setLang('cz')">🇨🇿</button>
+                <button class="btn btn-sm lang-btn" data-lang="en" onclick="setLang('en')">🇬🇧</button>
+            </div>
+        </div>
     </div>
 </nav>
 
 <div class="container my-5">
     <div class="text-center mb-4">
-        <a href="vzdelavanie.html" class="btn btn-success btn-lg fw-bold px-5 py-3 shadow">
+        <a href="vzdelavanie.html" class="btn btn-success btn-lg fw-bold px-5 py-3 shadow" data-i18n="ctaBtn">
             📖 Nový v investovaní? Začni tu →
         </a>
     </div>
-    <h1 class="text-center mb-2">Koľko budem mať o X rokov?</h1>
-    <p class="text-center text-muted mb-5">Zadaj parametre a zisti reálnu hodnotu svojich investícií</p>
+    <h1 class="text-center mb-2" data-i18n="h1">Koľko budem mať o X rokov?</h1>
+    <p class="text-center text-muted mb-5" data-i18n="subheading">Zadaj parametre a zisti reálnu hodnotu svojich investícií</p>
 
     <!-- FORMULÁR -->
     <div class="row justify-content-center">
@@ -34,35 +41,35 @@
                 <div class="card-body">
 
                     <div class="mb-4">
-                        <label class="form-label fw-bold">Mesačná investícia: <span id="labelMesacna" class="text-success">100 €</span></label>
+                        <label class="form-label fw-bold"><span data-i18n="labelMesacna">Mesačná investícia:</span> <span id="labelMesacna" class="text-success">100 €</span></label>
                         <input type="range" id="mesacnaInvesticia" class="form-range" value="100" min="10" max="2000" step="10">
                         <div class="d-flex justify-content-between text-muted small"><span>10 €</span><span>2 000 €</span></div>
                     </div>
 
                     <div class="mb-4">
-                        <label class="form-label fw-bold">Počet rokov investovania: <span id="labelRoky" class="text-success">20 rokov</span></label>
+                        <label class="form-label fw-bold"><span data-i18n="labelRoky">Počet rokov investovania:</span> <span id="labelRoky" class="text-success">20 rokov</span></label>
                         <input type="range" id="pocetRokov" class="form-range" value="20" min="1" max="50" step="1">
-                        <div class="d-flex justify-content-between text-muted small"><span>1 rok</span><span>50 rokov</span></div>
+                        <div class="d-flex justify-content-between text-muted small"><span data-i18n="rangeRokyMin">1 rok</span><span data-i18n="rangeRokyMax">50 rokov</span></div>
                     </div>
 
                     <div class="mb-4">
-                        <label class="form-label fw-bold">Váš vek: <span id="labelVek" class="text-success">30 rokov</span></label>
+                        <label class="form-label fw-bold"><span data-i18n="labelVek">Váš vek:</span> <span id="labelVek" class="text-success">30 rokov</span></label>
                         <input type="range" id="vek" class="form-range" value="30" min="18" max="70" step="1">
                         <div class="d-flex justify-content-between text-muted small"><span>18</span><span>70</span></div>
                     </div>
 
                     <div class="mb-4">
-                        <label class="form-label fw-bold">Ročná inflácia: <span id="labelInflacia" class="text-success">2,25 %</span></label>
+                        <label class="form-label fw-bold"><span data-i18n="labelInflacia">Ročná inflácia:</span> <span id="labelInflacia" class="text-success">2,25 %</span></label>
                         <input type="range" id="inflacia" class="form-range" value="2.25" min="0" max="10" step="0.25">
                         <div class="d-flex justify-content-between text-muted small"><span>0 %</span><span>10 %</span></div>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Rizikový profil</label>
+                        <label class="form-label fw-bold" data-i18n="labelRiziko">Rizikový profil</label>
                         <select id="riziko" class="form-select">
-                            <option value="konzervativny">Konzervatívny</option>
-                            <option value="vyvazeny" selected>Vyvážený</option>
-                            <option value="agresivny">Agresívny</option>
+                            <option value="konzervativny" data-i18n="optKonzerv">Konzervatívny</option>
+                            <option value="vyvazeny" selected data-i18n="optVyvazeny">Vyvážený</option>
+                            <option value="agresivny" data-i18n="optAgresivny">Agresívny</option>
                         </select>
                     </div>
 
@@ -79,7 +86,7 @@
             <!-- TABUĽKA -->
             <div class="card shadow-sm mb-4">
                 <div class="card-body">
-                    <h4 class="text-center mb-4">📊 Výsledky podľa indexu</h4>
+                    <h4 class="text-center mb-4" data-i18n="cardResults">📊 Výsledky podľa indexu</h4>
                     <div id="tabulkaVysledkov"></div>
                 </div>
             </div>
@@ -87,7 +94,7 @@
             <!-- ODPORÚČANIE ETF -->
             <div class="card shadow-sm mb-4 border-success">
                 <div class="card-body">
-                    <h4 class="text-center mb-3">✅ Odporúčané ETF</h4>
+                    <h4 class="text-center mb-3" data-i18n="cardEtf">✅ Odporúčané ETF</h4>
                     <div id="odporucanie"></div>
                 </div>
             </div>
@@ -95,7 +102,7 @@
             <!-- GRAF -->
             <div class="card shadow-sm mb-4">
                 <div class="card-body">
-                    <h4 class="text-center mb-3">📈 Vývoj investície v čase</h4>
+                    <h4 class="text-center mb-3" data-i18n="cardChart">📈 Vývoj investície v čase</h4>
                     <canvas id="graf"></canvas>
                 </div>
             </div>
@@ -103,7 +110,7 @@
             <!-- BROKERI -->
             <div class="card shadow-sm">
                 <div class="card-body">
-                    <h4 class="text-center mb-4">🏦 Porovnanie brokerov</h4>
+                    <h4 class="text-center mb-4" data-i18n="cardBrokers">🏦 Porovnanie brokerov</h4>
                     <div id="brokeri"></div>
                 </div>
             </div>
@@ -116,26 +123,26 @@
         <div class="row mb-4 g-4 justify-content-center">
             <!-- O projekte -->
             <div class="col-md-5">
-                <h5 class="fw-bold mb-3 text-white">📈 Investičná kalkulačka</h5>
-                <p class="footer-text">
+                <h5 class="fw-bold mb-3 text-white" data-i18n="footerAboutTitle">📈 Investičná kalkulačka</h5>
+                <p class="footer-text" data-i18n="footerAboutText">
                     Bezplatný vzdelávací nástroj pre dlhodobých investorov v EÚ.
                     Pomáhame pochopiť silu zloženého úročenia a orientovať sa vo svete ETF.
                 </p>
-                <p class="footer-text mb-0">
+                <p class="footer-text mb-0" data-i18n="footerSources">
                     Zdroje dát: MSCI, S&amp;P Global, NASDAQ, ECB.
                 </p>
             </div>
 
             <!-- Právne upozornenie -->
             <div class="col-md-5">
-                <h6 class="fw-bold mb-3 text-white">⚖️ Právne upozornenie</h6>
-                <p class="footer-text">
+                <h6 class="fw-bold mb-3 text-white" data-i18n="footerLegalTitle">⚖️ Právne upozornenie</h6>
+                <p class="footer-text" data-i18n-html="footerLegal1">
                     Táto stránka slúži <strong class="text-white">výlučne na vzdelávacie účely</strong> a nepredstavuje investičné poradenstvo v zmysle zákona č. 566/2001 Z. z. o cenných papieroch ani smernice MiFID II.
                 </p>
-                <p class="footer-text">
+                <p class="footer-text" data-i18n-html="footerLegal2">
                     Historické výnosy <strong class="text-white">nezaručujú</strong> budúce výsledky. Hodnota investície môže klesať aj rásť. Investovanie je spojené s rizikom čiastočnej alebo úplnej straty vloženého kapitálu.
                 </p>
-                <p class="footer-text mb-0">
+                <p class="footer-text mb-0" data-i18n="footerLegal3">
                     Pred akýmkoľvek investičným rozhodnutím odporúčame konzultáciu s licencovaným finančným poradcom registrovaným v NBS.
                 </p>
             </div>
@@ -143,12 +150,14 @@
 
         <hr class="footer-divider">
 
-        <p class="footer-copy text-center mb-0">© 2026 Investičná kalkulačka — nie sme licencovaní investiční poradcovia | Nie sme pobočkou ani partnerom žiadneho brokera</p>
+        <p class="footer-copy text-center mb-0" data-i18n="footerCopy">© 2026 Investičná kalkulačka — nie sme licencovaní investiční poradcovia | Nie sme pobočkou ani partnerom žiadneho brokera</p>
     </div>
 </footer>
 
 <div id="broker-tooltip" role="tooltip" aria-hidden="true"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/translations.js"></script>
+<script src="js/i18n.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
