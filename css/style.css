@@ -208,8 +208,8 @@ h1 {
   background: transparent;
   border: 1px solid rgba(255,255,255,0.3);
   border-radius: 6px;
-  opacity: 0.6;
-  transition: opacity 0.2s;
   color: #fff;
+  transition: color 0.2s, border-color 0.2s;
 }
-.lang-btn:hover, .lang-btn.active { opacity: 1; border-color: rgba(255,255,255,0.8); }
+.lang-btn:hover { border-color: rgba(255,255,255,0.8); }
+.lang-btn.active { color: #dc3545; border-color: #dc3545; }
