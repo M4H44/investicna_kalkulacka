@@ -9,7 +9,7 @@ function t(key) {
 function setLang(lang) {
   _lang = lang
   localStorage.setItem('lang', lang)
-  document.documentElement.lang = lang === 'cz' ? 'cs' : lang === 'sk' ? 'sk' : lang === 'hu' ? 'hu' : lang
+  document.documentElement.lang = lang === 'cz' ? 'cs' : lang === 'sk' ? 'sk' : lang === 'hu' ? 'hu' : lang === 'pl' ? 'pl' : lang
   applyTranslations()
   // re-render calculator if on index page
   if (typeof aktualizujLabely === 'function') aktualizujLabely()
@@ -40,11 +40,18 @@ function pluralYear(n) {
   if (_lang === 'en') return n === 1 ? 'year' : 'years'
   if (_lang === 'cz') return n === 1 ? 'rok' : n <= 4 ? 'roky' : 'let'
   if (_lang === 'hu') return 'év'
+  if (_lang === 'pl') {
+    if (n === 1) return 'rok'
+    const m10 = n % 10
+    const m100 = n % 100
+    if (m10 >= 2 && m10 <= 4 && (m100 < 10 || m100 >= 20)) return 'lata'
+    return 'lat'
+  }
   return n === 1 ? 'rok' : n <= 4 ? 'roky' : 'rokov'
 }
 
 function formatNumber(val) {
-  const locale = _lang === 'en' ? 'en-GB' : _lang === 'cz' ? 'cs-CZ' : _lang === 'hu' ? 'hu-HU' : 'sk-SK'
+  const locale = _lang === 'en' ? 'en-GB' : _lang === 'cz' ? 'cs-CZ' : _lang === 'hu' ? 'hu-HU' : _lang === 'pl' ? 'pl-PL' : 'sk-SK'
   return new Intl.NumberFormat(locale, {
     style: 'currency', currency: 'EUR', maximumFractionDigits: 0
   }).format(val)

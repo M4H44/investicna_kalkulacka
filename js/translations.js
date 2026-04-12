@@ -781,5 +781,192 @@ havonta alkalmazva minden egyes befizetésre.`,
     rule5Title: 'Kezdj el hamarabb, ne jobbkor — ne várakozz',
     rule5Desc: 'A piacon töltött idő értékesebb, mint a piac időzítése. A kamatos kamat csodákat tesz.',
     eduCtaBtn: '🚀 Próbáld ki a kalkulátort'
+  },
+
+  pl: {
+    pageTitle: 'Kalkulator inwestycyjny',
+    eduPageTitle: 'Podstawy inwestowania – Kalkulator inwestycyjny',
+
+    navBrand: '📈 Kalkulator inwestycyjny',
+    navEdu: '📖 Podstawy inwestowania',
+    navCalc: '🧮 Kalkulator',
+
+    ctaBtn: '📖 Nowy w inwestowaniu? Zacznij tutaj →',
+    h1: 'Ile będę miał za X lat?',
+    subheading: 'Podaj parametry i zobacz realną wartość swoich inwestycji',
+    labelMesacna: 'Inwestycja miesięczna:',
+    labelRoky: 'Liczba lat inwestowania:',
+    labelVek: 'Twój wiek:',
+    labelInflacia: 'Inflacja roczna:',
+    labelRiziko: 'Profil ryzyka',
+    optKonzerv: 'Konserwatywny',
+    optVyvazeny: 'Zrównoważony',
+    optAgresivny: 'Agresywny',
+    cardResults: '📊 Wyniki według indeksu',
+    cardEtf: '✅ Polecane ETF-y',
+    cardChart: '📈 Rozwój inwestycji w czasie',
+    cardBrokers: '🏦 Porównanie brokerów',
+
+    rangeRokyMin: '1 rok',
+    rangeRokyMax: '50 lat',
+
+    footerAboutTitle: '📈 Kalkulator inwestycyjny',
+    footerAboutText: 'Bezpłatne narzędzie edukacyjne dla długoterminowych inwestorów w UE. Pomagamy zrozumieć siłę procentu składanego i odnaleźć się w świecie ETF-ów.',
+    footerSources: 'Źródła danych: MSCI, S&P Global, NASDAQ, ECB.',
+    footerLegalTitle: '⚖️ Zastrzeżenie prawne',
+    footerLegal1: 'Ta strona służy <strong class="text-white">wyłącznie celom edukacyjnym</strong> i nie stanowi doradztwa inwestycyjnego w rozumieniu ustawy z dnia 29 lipca 2005 r. o obrocie instrumentami finansowymi ani dyrektywy MiFID II.',
+    footerLegal2: 'Historyczne stopy zwrotu <strong class="text-white">nie gwarantują</strong> przyszłych wyników. Wartość inwestycji może rosnąć i maleć. Inwestowanie wiąże się z ryzykiem częściowej lub całkowitej utraty zainwestowanego kapitału.',
+    footerLegal3: 'Przed podjęciem decyzji inwestycyjnej zalecamy konsultację z licencjonowanym doradcą finansowym wpisanym do rejestru KNF.',
+    footerCopy: '© 2026 Kalkulator inwestycyjny — nie jesteśmy licencjonowanymi doradcami inwestycyjnymi | Nie jesteśmy oddziałem ani partnerem żadnego brokera',
+
+    thIndex: 'Indeks',
+    thVlozene: 'Wpłacono',
+    thNominalne: 'Nominalnie',
+    thRealne: 'Realnie (po inflacji)',
+    thZisk: 'Zysk',
+    inflaciaNote: '* Historyczne stopy zwrotu nie gwarantują przyszłych wyników. Inflacja: ',
+    metaLabel: 'ℹ️ Źródła i metodologia',
+    metaHtml: `<strong>📊 Źródła i metodologia</strong><br><br>
+Stopy zwrotu są historycznym <strong>CAGR</strong> (średnia geometryczna) za lata 1985–2024,<br>
+z uwzględnieniem reinwestowanych dywidend (indeks total return), w USD.<br><br>
+<strong>NASDAQ 100 ~14%</strong> — NASDAQ / Bloomberg, total return<br>
+<strong>S&P 500 ~11%</strong> — S&P Global / dane Shillera, total return<br>
+<strong>MSCI World ~9%</strong> — oficjalny indeks MSCI, net total return<br>
+<strong>Obligacje ~3%</strong> — ECB / Bloomberg Euro Govt Bond Index;<br>
+&nbsp;&nbsp;szacunek forward na podstawie bieżących rentowności strefy euro<br><br>
+Wartość realna: r<sub>real</sub> = (1 + r<sub>nom</sub>) / (1 + i) − 1<br>
+stosowana miesięcznie do każdej wpłaty osobno.`,
+    volba1: '1. wybór',
+    volba2: '2. wybór',
+    isinLabel: 'ISIN:',
+    precoLabel: 'Dlaczego?',
+    etfDisclaimer: '⚠️ To nie jest doradztwo inwestycyjne. Informacje mają charakter wyłącznie edukacyjny.',
+    warn1Rok: '⚠️ Dla horyzontu 1 roku polecamy obligacje niezależnie od profilu ryzyka.',
+    warnKratkyPrefix: '💡 Dla horyzontu ',
+    warnKratkySuffix: ' polecamy ostrożniejsze podejście niż przy inwestowaniu długoterminowym.',
+    thBroker: 'Broker',
+    thPoplatkyETF: 'Opłaty<br>ETF',
+    thDostupnost: 'Dostępność',
+    thJazyk: 'Język',
+    thNakladyPrefix: 'Koszty przez ',
+    thNakladySuffix: ' lat',
+    thZostatok: 'Saldo (nominalne)',
+    thUcet: 'Konto',
+    otvorUcet: 'Otwórz konto',
+    dostupnostEU: 'Cała UE',
+    dostupnostPartial: '18 krajów UE',
+    dostupnostSKCZ: 'SK/CZ',
+    brokerNotePrefix: '* Koszty wyliczone przy ',
+    brokerNoteMid: '/mies. przez ',
+    brokerNoteSuffix: ' lat. Stopa zwrotu: ',
+    brokerNoteEnd: '% r.o. Wartości nominalne.',
+    chartDlhopisy: 'Obligacje (3%)',
+    chartVlozene: 'Wpłacono',
+    chartNasdaqReal: 'NASDAQ realnie',
+    chartSP500Real: 'S&P 500 realnie',
+    chartMSCIReal: 'MSCI World realnie',
+    chartYearShort: 'r.',
+    indexDlhopisy: 'Obligacje',
+    regulacjaLabel: 'Regulacja:',
+    ochranaLabel: 'Ochrona:',
+    zlozenieLabel: 'Skład:',
+    priemerVynosLabel: 'Średni zwrot:',
+
+    brokerMeta: {
+      xtb:   { regulacja: 'KNF (Polska), licencja UE', ochrana: 'Fundusz kompensacyjny do 20 000 €', poznamka: 'Aktywa klientów są oddzielone od majątku XTB. ETF-y to papiery wartościowe w Twoim posiadaniu — XTB jest tylko pośrednikiem. W razie upadłości brokera ETF-y wracają do Ciebie.' },
+      t212:  { regulacja: 'FCA (Wielka Brytania), CySEC (Cypr)', ochrana: 'Fundusz kompensacyjny do 20 000 €', poznamka: 'ETF-y są zarządzane przez niezależnego depozytariusza (Interactive Brokers UK). Twoje aktywa nie są własnością Trading 212. Pośrednik, nie zarządca.' },
+      degiro:{ regulacja: 'AFM / DNB (Holandia)', ochrana: 'Fundusz kompensacyjny do 20 000 €', poznamka: 'ETF-y są przechowywane w osobnej osobie prawnej Stichting DEGIRO — oddzielnie od majątku brokera. Twoje papiery są chronione także przy upadłości DEGIRO.' },
+      tr:    { regulacja: 'BaFin (Niemcy) — licencja bankowa', ochrana: 'Wpłaty do 100 000 € (ochrona depozytu bankowego) + fundusz kompensacyjny do 20 000 €', poznamka: 'Trade Republic to niemiecki bank. ETF-y jako papiery wartościowe są oddzielone od bilansu banku i należą do Ciebie, nie do banku.' },
+      etoro: { regulacja: 'CySEC (Cypr), FCA (Wielka Brytania)', ochrana: 'Fundusz kompensacyjny do 20 000 €', poznamka: 'Aktywa klientów są oddzielone od majątku eToro. ETF-y są własnością klienta. eToro jest pośrednikiem — emitentami ETF-ów są m.in. iShares, Vanguard.' },
+      portu: { regulacja: 'ČNB (Czechy)', ochrana: 'Fundusz kompensacyjny do 20 000 €', poznamka: 'Aktywa klientów są przechowywane u depozytariusza (Raiffeisen Bank). Portu zarządza portfelem, ale ETF-y są Twoją własnością, nie Portu.' }
+    },
+
+    etf: {
+      'LU1681038243': {
+        dovod: 'Najwyższa historyczna stopa zwrotu ~14% r.o., TER 0,23%, ACC — dostępne na XTB i Trading 212 w EUR (Xetra: 6AQQ.DE)',
+        zlozenie: '100 największych pozafinansowych spółek technologicznych z USA — Apple, Microsoft, Nvidia, Amazon...'
+      },
+      'IE00B5BMR087': {
+        dovod: 'Stabilniejszy niż NASDAQ, ~11% r.o., TER 0,07%, ACC — dostępne na XTB i Trading 212 w EUR (Xetra: SXR8.DE)',
+        zlozenie: '500 największych spółek USA we wszystkich sektorach'
+      },
+      'IE00B4L5Y983': {
+        dovod: 'Dywersyfikacja globalna, niższa zmienność, TER 0,20%, ACC — dostępne na XTB i Trading 212 w EUR',
+        zlozenie: '~1 400 spółek z 23 rozwiniętych krajów (USA, UE, Japonia...)'
+      },
+      'IE00BK5BQT80': {
+        dovod: 'Maksymalna dywersyfikacja z rynkami wschodzącymi, TER 0,22%, ACC — dostępne na XTB i Trading 212 w EUR',
+        zlozenie: '~3 700 spółek z całego świata, w tym rynki wschodzące'
+      },
+      'IE00B4WXJJ64': {
+        dovod: 'Obligacje skarbowe strefy euro, niskie ryzyko, TER 0,07%. ⚠️ Dystrybucyjny (DIS) — kupony wypłacane regularnie, trzeba reinwestować ręcznie.',
+        zlozenie: 'Obligacje skarbowe Niemiec, Francji, Włoch, Hiszpanii i innych krajów UE'
+      },
+      'IE00BZ163H91': {
+        dovod: 'Alternatywa Vanguard, TER 0,07%. ⚠️ Dystrybucyjny (DIS) — kupony wypłacane regularnie, trzeba reinwestować ręcznie.',
+        zlozenie: 'Obligacje skarbowe strefy euro — skład podobny do IEAG'
+      }
+    },
+
+    eduNavBrand: '📈 Kalkulator inwestycyjny',
+    eduH1: '📖 Podstawy inwestowania',
+    eduSubtitle: 'Zrozum kluczowe pojęcia, zanim zainwestujesz pierwsze euro',
+    triH2: 'Trójkąt inwestycyjny',
+    triIntro: 'Każda inwestycja balansuje między trzema cechami. Nie możesz mieć wszystkich trzech naraz — zawsze coś poświęcasz.',
+    triVynos: 'Zwrot',
+    triLikwidita: 'Płynność',
+    triRiziko: 'Ryzyko',
+    triVynosTitle: 'Zwrot',
+    triVynosDesc: 'Ile zarabiasz. Wyższy zwrot zwykle oznacza wyższe ryzyko lub niższą płynność. Akcje historycznie ~7–14% r.o., obligacje ~2–4%.',
+    triRizikoTitle: 'Ryzyko',
+    triRizikoDesc: 'Szansa utraty części pieniędzy. Bezpieczniejsze inwestycje dają niższy zwrot. Ryzyko skutecznie maleje z dłuższym horyzontem.',
+    triLikwiditaTitle: 'Płynność',
+    triLikwiditaDesc: 'Jak szybko możesz wypłacić środki bez straty. ETF-y na giełdzie są bardzo płynne — sprzedasz je w sekundach w każdej chwili.',
+    exDlhopisyTitle: 'Przykład: obligacje skarbowe',
+    exDlhopisyText: '✅ Niskie ryzyko &nbsp; ✅ Wysoka płynność &nbsp; ❌ Niski zwrot',
+    exSP500Title: 'Przykład: ETF akcyjny (S&P 500)',
+    exSP500Text: '⚠️ Średnie ryzyko &nbsp; ✅ Wysoka płynność &nbsp; ✅ Wysoki zwrot',
+    exNehnutoTitle: 'Przykład: nieruchomość',
+    exNehnutoText: '✅ Niskie ryzyko &nbsp; ❌ Niska płynność &nbsp; ✅ Przyzwoity zwrot',
+    riskH2: 'Rodzaje ryzyka inwestycyjnego',
+    riskIntro: 'Nie każde ryzyko jest takie samo. Część da się wyeliminować, innej nie.',
+    riskMarketTitle: '📉 Ryzyko rynkowe',
+    riskMarketDesc: 'Cały rynek spada — np. w recesji lub pandemii. Dotyka wszystkich inwestorów naraz.',
+    riskMarketBadge1: 'Nie da się wyeliminować',
+    riskMarketBadge2: 'Maleje z dłuższym horyzontem',
+    riskCompanyTitle: '🏢 Ryzyko spółki',
+    riskCompanyDesc: 'Jedna firma bankrutuje (np. Enron, Wirecard). Jeśli masz tylko ją, tracisz wszystko.',
+    riskCompanyBadge1: 'Da się wyeliminować dywersyfikacją — np. ETF NASDAQ 100 inwestuje w 100 spółek USA',
+    riskCurrencyTitle: '💱 Ryzyko walutowe',
+    riskCurrencyDesc: 'Jeśli inwestujesz w USD, a euro się umacnia, twój zwrot w euro maleje. Realne dla inwestorów z UE.',
+    riskCurrencyBadge1: 'Częściowo do opanowania — inwestuj w ETF-y denominowane w euro',
+    riskInflationTitle: '🔥 Ryzyko inflacyjne',
+    riskInflationDesc: 'Pieniądze na koncie oszczędnościowym tracą siłę nabywczą. Inflacja 3% rocznie = realnie oszczędności się kurczą.',
+    riskInflationBadge1: 'Nie da się tego zignorować',
+    riskInflationBadge2: 'Akcje długoterminowo je pokonują',
+    riskTimingTitle: '⏳ Ryzyko czasowania',
+    riskTimingDesc: 'Sprzedajesz w złym momencie — np. przy krachu. Próby „czasowania rynku" prawie zawsze zawodzą.',
+    riskTimingBadge1: 'Rozwiązuje regularne inwestowanie, najlepiej 1× w miesiącu (DCA)',
+    riskCounterTitle: '🏦 Ryzyko kontrahenta',
+    riskCounterDesc: 'Broker bankrutuje. Dlatego ważna jest regulacja i ochrona depozytów (SIPC, FSCS, ICS). Jeśli broker upadnie, nie tracisz ETF-ów — środki są w papierach, nie u brokera.',
+    riskCounterBadge1: 'Ogranicza regulacja',
+    etfH2: 'Czym jest ETF i dlaczego jest popularny?',
+    etfDesc: '<strong>ETF (Exchange Traded Fund)</strong> to fundusz notowany na giełdzie, który śledzi indeks — np. S&amp;P 500 obejmuje 500 największych firm USA. Kupując jeden ETF, posiadasz mały udział w każdej z nich naraz.',
+    etfProsTitle: '✅ Zalety ETF-ów',
+    etfProsContent: 'Niskie opłaty (TER 0,07–0,2%)<br>Natychmiastowa dywersyfikacja<br>Wysoka płynność<br>Dostępne od 1 €',
+    etfConsTitle: '⚠️ Na co uważać',
+    etfConsContent: 'Wartość zmienia się codziennie<br>W panice ludzie sprzedają tanio<br>Waluta funduszu vs. twoja waluta — inwestuj w euro<br>Akumulacyjne ACC lepiej reinwestują dywidendę niż dystrybucyjne',
+    rulesH2: '5 złotych zasad długoterminowego inwestora',
+    rule1Title: 'Inwestuj regularnie, nie od czasu do czasu — raz w miesiącu',
+    rule1Desc: 'DCA (uśrednianie kosztów) zmniejsza ryzyko złego wejścia w rynek.',
+    rule2Title: 'Dywersyfikuj — nie wkładaj wszystkich jaj do jednego koszyka',
+    rule2Desc: 'ETF na globalny indeks daje Ci udział w 1 600+ spółkach naraz.',
+    rule3Title: 'Dłuższy horyzont = mniejsze skuteczne ryzyko',
+    rule3Desc: 'S&P 500 nigdy nie spadł w żadnym 20-letnim okresie w historii.',
+    rule4Title: 'Nie śledź rynku codziennie',
+    rule4Desc: 'Krótkoterminowe wahania są normalne. Panika to najdroższy błąd inwestycyjny.',
+    rule5Title: 'Zacznij wcześniej, nie „w idealnym momencie" — nie czekaj',
+    rule5Desc: 'Czas na rynku jest cenniejszy niż wchodzenie w idealny moment. Procent składany robi cuda.',
+    eduCtaBtn: '🚀 Wypróbuj kalkulator'
   }
 }
