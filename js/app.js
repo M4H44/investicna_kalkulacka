@@ -261,7 +261,7 @@ function vypocitaj() {
         <tbody>
             <tr class="table-success">
                 <td><strong class="broker-tip" data-broker="xtb">XTB</strong> ⭐</td>
-                <td>0%<br><small class="text-muted">do 100k€/mes</small></td>
+                <td>0%<br><small class="text-muted">${t('feeXTBNote')}</small></td>
                 <td class="hide-mobile">${t('dostupnostEU')}</td>
                 <td class="hide-mobile">SK/CZ/PL/DE</td>
                 <td class="text-success fw-bold">${formatEur(nakladyXTB)}</td>
@@ -279,7 +279,7 @@ function vypocitaj() {
             </tr>
             <tr>
                 <td><strong class="broker-tip" data-broker="tr">Trade Republic</strong></td>
-                <td>1€<br><small class="text-muted">transakcia</small></td>
+                <td>1€<br><small class="text-muted">${t('feePerTrade')}</small></td>
                 <td class="hide-mobile">${t('dostupnostPartial')}</td>
                 <td class="hide-mobile">SK/DE/FR</td>
                 <td class="text-warning fw-bold">-${formatEur(nakladyTR)}</td>
@@ -306,7 +306,7 @@ function vypocitaj() {
             </tr>
             <tr>
                 <td><strong class="broker-tip" data-broker="portu">Portu</strong></td>
-                <td>1% ročne</td>
+                <td>${t('feePerYear')}</td>
                 <td class="hide-mobile">${t('dostupnostSKCZ')}</td>
                 <td class="hide-mobile">SK/CZ</td>
                 <td class="text-danger fw-bold">-${formatEur(nakladyPortu)}</td>
@@ -407,7 +407,8 @@ function aktualizujLabely() {
 
     document.getElementById('labelMesacna').textContent = formatEur(mesacna)
     document.getElementById('labelRoky').textContent = roky + ' ' + pluralYear(roky)
-    document.getElementById('labelInflacia').textContent = inflacia.toFixed(2).replace('.', ',') + ' %'
+    const sep = (_lang === 'en') ? '.' : ','
+    document.getElementById('labelInflacia').textContent = inflacia.toFixed(2).replace('.', sep) + ' %'
 }
 
 // Event listenery — live výpočet
