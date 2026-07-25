@@ -141,6 +141,16 @@ h1 {
     max-width: 480px;
 }
 
+/* Dotykove zariadenia — tooltip ukotveny naspodku obrazovky (poloha nezavisi od kurzora) */
+#broker-tooltip.tip-touch {
+    left: 12px !important;
+    right: 12px !important;
+    top: auto !important;
+    bottom: 16px !important;
+    max-width: none;
+    width: auto;
+}
+
 @media (max-width: 576px) {
     #broker-tooltip.wide {
         left: 8px !important;

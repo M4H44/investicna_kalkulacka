@@ -203,6 +203,8 @@ function vypocitaj() {
             <span class="badge bg-success">${i === 0 ? t('volba1') : t('volba2')}</span>
             <h6 class="mb-0">🎯 <span
                 class="etf-tooltip-trigger"
+                tabindex="0"
+                role="button"
                 data-bs-toggle="tooltip"
                 data-bs-placement="top"
                 data-bs-html="true"
@@ -425,52 +427,75 @@ const brokerTooltipEl = document.getElementById('broker-tooltip')
 const metaHtml = () => t('metaHtml')
 
 const tabulkaEl = document.getElementById('tabulkaVysledkov')
-
-tabulkaEl.addEventListener('mouseover', e => {
-    if (!e.target.closest('.metodika-tip')) return
-    brokerTooltipEl.innerHTML = metaHtml()
-    brokerTooltipEl.classList.add('wide')
-    brokerTooltipEl.style.display = 'block'
-})
-tabulkaEl.addEventListener('mousemove', e => {
-    if (!e.target.closest('.metodika-tip')) return
-    brokerTooltipEl.style.left = (e.clientX + 14) + 'px'
-    brokerTooltipEl.style.top  = (e.clientY + 14) + 'px'
-})
-tabulkaEl.addEventListener('mouseleave', () => {
-    brokerTooltipEl.style.display = 'none'
-    brokerTooltipEl.classList.remove('wide')
-})
-tabulkaEl.addEventListener('mouseout', e => {
-    if (!e.target.closest('.metodika-tip')) {
-        brokerTooltipEl.style.display = 'none'
-        brokerTooltipEl.classList.remove('wide')
-    }
-})
-
-// Broker tooltip listeners — attached once to the static #brokeri container
 const brokeriEl = document.getElementById('brokeri')
 
-brokeriEl.addEventListener('mouseover', e => {
-    const tip = e.target.closest('.broker-tip')
-    if (!tip) return
-    const klic = tip.dataset.broker
-    brokerTooltipEl.innerHTML = brokerTooltip(klic)
-    brokerTooltipEl.style.display = 'block'
-})
+// Dotykove zariadenia nemaju hover — tam zobrazujeme tooltip na tap
+const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches
 
-brokeriEl.addEventListener('mousemove', e => {
-    brokerTooltipEl.style.left = (e.clientX + 14) + 'px'
-    brokerTooltipEl.style.top  = (e.clientY + 14) + 'px'
-})
-
-brokeriEl.addEventListener('mouseleave', () => {
+function skryTooltip() {
     brokerTooltipEl.style.display = 'none'
-})
+    brokerTooltipEl.classList.remove('wide', 'tip-touch')
+}
 
-brokeriEl.addEventListener('mouseout', e => {
-    if (!e.target.closest('.broker-tip')) brokerTooltipEl.style.display = 'none'
-})
+if (isTouch) {
+    // Tap na broker/metodiku zobrazi tooltip; tap kdekolvek inam ho skryje
+    document.addEventListener('click', e => {
+        const brokerTip = e.target.closest('.broker-tip')
+        const metaTip   = e.target.closest('.metodika-tip')
+        if (brokerTip) {
+            brokerTooltipEl.innerHTML = brokerTooltip(brokerTip.dataset.broker)
+            brokerTooltipEl.classList.add('tip-touch')
+            brokerTooltipEl.classList.remove('wide')
+            brokerTooltipEl.style.display = 'block'
+        } else if (metaTip) {
+            brokerTooltipEl.innerHTML = metaHtml()
+            brokerTooltipEl.classList.add('tip-touch', 'wide')
+            brokerTooltipEl.style.display = 'block'
+        } else {
+            skryTooltip()
+        }
+    })
+} else {
+    // Desktop — povodne spravanie na hover, poloha podla kurzora
+    tabulkaEl.addEventListener('mouseover', e => {
+        if (!e.target.closest('.metodika-tip')) return
+        brokerTooltipEl.innerHTML = metaHtml()
+        brokerTooltipEl.classList.add('wide')
+        brokerTooltipEl.style.display = 'block'
+    })
+    tabulkaEl.addEventListener('mousemove', e => {
+        if (!e.target.closest('.metodika-tip')) return
+        brokerTooltipEl.style.left = (e.clientX + 14) + 'px'
+        brokerTooltipEl.style.top  = (e.clientY + 14) + 'px'
+    })
+    tabulkaEl.addEventListener('mouseleave', () => {
+        brokerTooltipEl.style.display = 'none'
+        brokerTooltipEl.classList.remove('wide')
+    })
+    tabulkaEl.addEventListener('mouseout', e => {
+        if (!e.target.closest('.metodika-tip')) {
+            brokerTooltipEl.style.display = 'none'
+            brokerTooltipEl.classList.remove('wide')
+        }
+    })
+
+    brokeriEl.addEventListener('mouseover', e => {
+        const tip = e.target.closest('.broker-tip')
+        if (!tip) return
+        brokerTooltipEl.innerHTML = brokerTooltip(tip.dataset.broker)
+        brokerTooltipEl.style.display = 'block'
+    })
+    brokeriEl.addEventListener('mousemove', e => {
+        brokerTooltipEl.style.left = (e.clientX + 14) + 'px'
+        brokerTooltipEl.style.top  = (e.clientY + 14) + 'px'
+    })
+    brokeriEl.addEventListener('mouseleave', () => {
+        brokerTooltipEl.style.display = 'none'
+    })
+    brokeriEl.addEventListener('mouseout', e => {
+        if (!e.target.closest('.broker-tip')) brokerTooltipEl.style.display = 'none'
+    })
+}
 
 // Inicializácia pri načítaní stránky
 aktualizujLabely()
