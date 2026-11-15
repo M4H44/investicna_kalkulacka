@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Základy investovania – Investičná kalkulačka</title>
+    <meta name="description"
+          content="Základy investovania zrozumiteľne: investičný trojuholník, typy investičného rizika, čo sú ETF a 5 zlatých pravidiel dlhodobého investora.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap z CDN; pri zmene verzie vymeniť aj integrity -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+          crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <style>
         .triangle-wrap {
@@ -85,7 +91,7 @@
     </div>
 </nav>
 
-<div class="container my-5">
+<main class="container my-5">
 
     <h1 class="text-center mb-2" data-i18n="eduH1">📖 Základy investovania</h1>
     <p class="text-center text-muted mb-5" data-i18n="eduSubtitle">Pochop kľúčové pojmy skôr, než vložíš prvé euro</p>
@@ -128,7 +134,7 @@
             <div class="col-md-4">
                 <div class="pillar-card card p-4 text-center">
                     <div class="pillar-icon mb-2">📈</div>
-                    <h5 class="fw-bold text-danger mb-2" data-i18n="triVynosTitle">Výnos</h5>
+                    <h3 class="h5 fw-bold text-danger mb-2" data-i18n="triVynosTitle">Výnos</h3>
                     <p class="text-muted small mb-0" data-i18n="triVynosDesc">
                         Koľko zarobíš. Vyšší výnos spravidla znamená vyššie riziko
                         alebo nižšiu likviditu. Akcie historicky ~7–14 % ročne, dlhopisy ~2–4 %.
@@ -138,7 +144,7 @@
             <div class="col-md-4">
                 <div class="pillar-card card p-4 text-center">
                     <div class="pillar-icon mb-2">🛡️</div>
-                    <h5 class="fw-bold text-primary mb-2" data-i18n="triRizikoTitle">Riziko</h5>
+                    <h3 class="h5 fw-bold text-primary mb-2" data-i18n="triRizikoTitle">Riziko</h3>
                     <p class="text-muted small mb-0" data-i18n="triRizikoDesc">
                         Šanca, že stratíš časť peňazí. Bezpečnejšie investície
                         prinášajú nižší výnos. Riziko sa efektívne znižuje dlhším horizontom.
@@ -148,7 +154,7 @@
             <div class="col-md-4">
                 <div class="pillar-card card p-4 text-center">
                     <div class="pillar-icon mb-2">💧</div>
-                    <h5 class="fw-bold text-success mb-2" data-i18n="triLikviditaTitle">Likvidita</h5>
+                    <h3 class="h5 fw-bold text-success mb-2" data-i18n="triLikviditaTitle">Likvidita</h3>
                     <p class="text-muted small mb-0" data-i18n="triLikviditaDesc">
                         Ako rýchlo môžeš peniaze vybrať bez straty. ETF na burze sú
                         vysoko likvidné — predáš ich behom sekúnd kedykoľvek.
@@ -189,7 +195,7 @@
         <div class="row g-4">
             <div class="col-md-6">
                 <div class="risk-card card">
-                    <h6 class="fw-bold mb-1" data-i18n="riskMarketTitle">📉 Trhové riziko</h6>
+                    <h3 class="h6 fw-bold mb-1" data-i18n="riskMarketTitle">📉 Trhové riziko</h3>
                     <p class="text-muted small mb-2" data-i18n="riskMarketDesc">Celý trh klesá — napr. počas recesie alebo pandémie. Postihuje všetkých investorov naraz.</p>
                     <span class="badge bg-danger d-block mb-1" data-i18n="riskMarketBadge1">Nedá sa eliminovať</span>
                     <span class="badge bg-secondary d-block" data-i18n="riskMarketBadge2">Znižuje sa dlhším časom</span>
@@ -197,21 +203,21 @@
             </div>
             <div class="col-md-6">
                 <div class="risk-card card">
-                    <h6 class="fw-bold mb-1" data-i18n="riskCompanyTitle">🏢 Firemné riziko</h6>
+                    <h3 class="h6 fw-bold mb-1" data-i18n="riskCompanyTitle">🏢 Firemné riziko</h3>
                     <p class="text-muted small mb-2" data-i18n="riskCompanyDesc">Jedna firma skrachuje (napr. Enron, Wirecard). Ak máš len ju, prídeš o všetko.</p>
                     <span class="badge bg-success d-block" data-i18n="riskCompanyBadge1">Dá sa eliminovať diverzifikáciou — napr. ETF NASDAQ 100 investuje do 100 US spoločností</span>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="risk-card card">
-                    <h6 class="fw-bold mb-1" data-i18n="riskCurrencyTitle">💱 Menové riziko</h6>
+                    <h3 class="h6 fw-bold mb-1" data-i18n="riskCurrencyTitle">💱 Menové riziko</h3>
                     <p class="text-muted small mb-2" data-i18n="riskCurrencyDesc">Ak investuješ v USD a euro posilní, tvoj výnos v eurách klesne. Pre SK/EÚ investorov reálne.</p>
                     <span class="badge bg-warning text-dark d-block" data-i18n="riskCurrencyBadge1">Čiastočne zvládnuteľné — investuj do ETF v eurách</span>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="risk-card card">
-                    <h6 class="fw-bold mb-1" data-i18n="riskInflationTitle">🔥 Inflačné riziko</h6>
+                    <h3 class="h6 fw-bold mb-1" data-i18n="riskInflationTitle">🔥 Inflačné riziko</h3>
                     <p class="text-muted small mb-2" data-i18n="riskInflationDesc">Peniaze na sporiacom účte strácajú kúpnu silu. Inflácia 3 % ročne = tvoje úspory reálne klesajú.</p>
                     <span class="badge bg-danger d-block mb-1" data-i18n="riskInflationBadge1">Nedá sa ignorovať</span>
                     <span class="badge bg-secondary d-block" data-i18n="riskInflationBadge2">Akcie ho dlhodobo prekonávajú</span>
@@ -219,14 +225,14 @@
             </div>
             <div class="col-md-6">
                 <div class="risk-card card">
-                    <h6 class="fw-bold mb-1" data-i18n="riskTimingTitle">⏳ Časové riziko</h6>
+                    <h3 class="h6 fw-bold mb-1" data-i18n="riskTimingTitle">⏳ Časové riziko</h3>
                     <p class="text-muted small mb-2" data-i18n="riskTimingDesc">Predáš v zlý čas — napr. počas krachu. Snaha o „časovanie trhu" zlyhá takmer vždy.</p>
                     <span class="badge bg-success d-block" data-i18n="riskTimingBadge1">Rieši to pravidelné investovanie, najlepšie 1× mesačne (DCA)</span>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="risk-card card">
-                    <h6 class="fw-bold mb-1" data-i18n="riskCounterTitle">🏦 Riziko protistrany</h6>
+                    <h3 class="h6 fw-bold mb-1" data-i18n="riskCounterTitle">🏦 Riziko protistrany</h3>
                     <p class="text-muted small mb-2" data-i18n="riskCounterDesc">Broker skrachuje. Preto sú dôležité regulácia a ochrana vkladov (SIPC, FSCS, ICS). Ak broker skrachuje, neprídeš o nič — peniaze máš v ETF, nie u brokera.</p>
                     <span class="badge bg-warning text-dark d-block" data-i18n="riskCounterBadge1">Znižuje regulácia</span>
                 </div>
@@ -318,13 +324,13 @@
         </a>
     </div>
 
-</div>
+</main>
 
 <footer class="footer-main mt-5 py-5">
     <div class="container">
         <div class="row mb-4 g-4 justify-content-center">
             <div class="col-md-5">
-                <h5 class="fw-bold mb-3 text-white" data-i18n="footerAboutTitle">📈 Investičná kalkulačka</h5>
+                <h2 class="h5 fw-bold mb-3 text-white" data-i18n="footerAboutTitle">📈 Investičná kalkulačka</h2>
                 <p class="footer-text" data-i18n="footerAboutText">
                     Bezplatný vzdelávací nástroj pre dlhodobých investorov v EÚ.
                     Pomáhame pochopiť silu zloženého úročenia a orientovať sa vo svete ETF.
@@ -335,7 +341,7 @@
             </div>
 
             <div class="col-md-5">
-                <h6 class="fw-bold mb-3 text-white" data-i18n="footerLegalTitle">⚖️ Právne upozornenie</h6>
+                <h2 class="h6 fw-bold mb-3 text-white" data-i18n="footerLegalTitle">⚖️ Právne upozornenie</h2>
                 <p class="footer-text" data-i18n-html="footerLegal1">
                     Táto stránka slúži <strong class="text-white">výlučne na vzdelávacie účely</strong> a nepredstavuje investičné poradenstvo v zmysle zákona č. 566/2001 Z. z. o cenných papieroch ani smernice MiFID II.
                 </p>
@@ -354,12 +360,16 @@
     </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/translations.js"></script>
-<script src="js/i18n.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+<script defer src="js/translations.js"></script>
+<script defer src="js/i18n.js"></script>
 <script>
-  // i18n.js already called applyTranslations(); set correct page title using eduPageTitle key
-  document.title = t('eduPageTitle')
+  // Titulok stránky až po načítaní odložených skriptov (t() je z i18n.js)
+  document.addEventListener('DOMContentLoaded', () => {
+    document.title = t('eduPageTitle')
+  })
 </script>
 </body>
 </html>

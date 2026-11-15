@@ -2,7 +2,7 @@
 const indexy = {
     nasdaq:  { nazov: 'NASDAQ 100',  vynos: 0.14, farba: '#0d6efd' },
     sp500:   { nazov: 'S&P 500',     vynos: 0.11, farba: '#198754' },
-    world:   { nazov: 'MSCI World',  vynos: 0.09, farba: '#ffc107' },
+    world:   { nazov: 'MSCI World',  vynos: 0.09, farba: '#ffc107', text: '#212529' },
     dlhopisy:{ nazov: 'Dlhopisy',    vynos: 0.03, farba: '#6c757d', nazovKey: 'indexDlhopisy' }
 }
 
@@ -167,7 +167,7 @@ function vypocitaj() {
 
         tabulkaHTML += `
             <tr>
-                <td><span class="badge" style="background:${index.farba}">${nazov}</span></td>
+                <td><span class="badge" style="background:${index.farba}${index.text ? ';color:' + index.text : ''}">${nazov}</span></td>
                 <td>${formatEur(vlozene)}</td>
                 <td class="fw-bold">${formatEur(fv)}</td>
                 <td class="text-success fw-bold">${formatEur(real)}</td>
@@ -188,9 +188,9 @@ function vypocitaj() {
     // Odporúčanie ETF
     const odporucania = etfOdporucania[rizikoPoupravene][horizont]
     const horizontUpozornenie = roky <= 1
-        ? `<p class="text-warning small">${t('warn1Rok')}</p>`
+        ? `<p class="text-danger small">${t('warn1Rok')}</p>`
         : roky <= 4
-            ? `<p class="text-info small">${t('warnKratkyPrefix')}${roky} ${pluralYear(roky)}${t('warnKratkySuffix')}</p>`
+            ? `<p class="text-info-emphasis small">${t('warnKratkyPrefix')}${roky} ${pluralYear(roky)}${t('warnKratkySuffix')}</p>`
             : ''
 
     const etfKarty = odporucania.map((odp, i) => {
@@ -201,7 +201,7 @@ function vypocitaj() {
     <div class="alert alert-success mb-2">
         <div class="d-flex align-items-center gap-2 mb-1">
             <span class="badge bg-success">${i === 0 ? t('volba1') : t('volba2')}</span>
-            <h6 class="mb-0">🎯 <span
+            <h3 class="h6 mb-0">🎯 <span
                 class="etf-tooltip-trigger"
                 tabindex="0"
                 role="button"
@@ -209,7 +209,7 @@ function vypocitaj() {
                 data-bs-placement="top"
                 data-bs-html="true"
                 title="<strong>${t('zlozenieLabel')}</strong> ${zlozenie}<br><strong>${t('priemerVynosLabel')}</strong> ${odp.vynos}"
-            >${odp.etf}</span></h6>
+            >${odp.etf}</span></h3>
         </div>
         <p class="mb-1 small"><strong>${t('isinLabel')}</strong> ${odp.isin}</p>
         <p class="mb-0 small"><strong>${t('precoLabel')}</strong> ${dovod}</p>
@@ -284,7 +284,7 @@ function vypocitaj() {
                 <td>1€<br><small class="text-muted">${t('feePerTrade')}</small></td>
                 <td class="hide-mobile">${t('dostupnostPartial')}</td>
                 <td class="hide-mobile">SK/DE/FR</td>
-                <td class="text-warning fw-bold">-${formatEur(nakladyTR)}</td>
+                <td class="text-danger fw-bold">-${formatEur(nakladyTR)}</td>
                 <td class="hide-mobile fw-bold">${formatEur(fvTR)}</td>
                 <td><a href="${brokerSignupUrl('tr')}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
             </tr>
@@ -293,7 +293,7 @@ function vypocitaj() {
                 <td>1€<br><small class="text-muted">+0,038%</small></td>
                 <td class="hide-mobile">${t('dostupnostEU')}</td>
                 <td class="hide-mobile">SK/EN</td>
-                <td class="text-warning fw-bold">-${formatEur(nakladyDegiro)}</td>
+                <td class="text-danger fw-bold">-${formatEur(nakladyDegiro)}</td>
                 <td class="hide-mobile fw-bold">${formatEur(fvDegiro)}</td>
                 <td><a href="${brokerSignupUrl('degiro')}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
             </tr>
@@ -302,7 +302,7 @@ function vypocitaj() {
                 <td>0%<br><small class="text-muted">1,5% konv.</small></td>
                 <td class="hide-mobile">${t('dostupnostEU')}</td>
                 <td class="hide-mobile">EN</td>
-                <td class="text-warning fw-bold">-${formatEur(nakladyeToro)}</td>
+                <td class="text-danger fw-bold">-${formatEur(nakladyeToro)}</td>
                 <td class="hide-mobile fw-bold">${formatEur(fveToro)}</td>
                 <td><a href="${brokerSignupUrl('etoro')}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm"><span class="d-none d-md-inline">${t('otvorUcet')}</span><span class="d-md-none">→</span></a></td>
             </tr>

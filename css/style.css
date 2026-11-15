@@ -223,3 +223,7 @@ h1 {
 }
 .lang-btn:hover { border-color: rgba(255,255,255,0.8); }
 .lang-btn.active { color: #dc3545; border-color: #dc3545; }
+/* Zelené sumy v zelených riadkoch brokerov: tmavší odtieň kvôli kontrastu */
+.table-success td.text-success {
+    color: #146c43 !important;
+}
