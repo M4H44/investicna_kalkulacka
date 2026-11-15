@@ -143,9 +143,9 @@ function vypocitaj() {
 
     const vlozene = mesacna * 12 * roky
 
-    // Výpočet pre každý index
+    // Výpočet pre každý index (tabindex: tabuľka sa dá posúvať aj klávesnicou)
     let tabulkaHTML = `
-        <div class="table-responsive">
+        <div class="table-responsive" tabindex="0" role="region" aria-labelledby="nadpisVysledky">
         <table class="table table-hover text-center">
             <thead class="table-dark">
                 <tr>
@@ -246,8 +246,9 @@ function vypocitaj() {
 
     const rokyLabel = `${t('thNakladyPrefix')}${roky} ${pluralYear(roky)}`
 
+    // tabindex: široká tabuľka sa dá na mobile posúvať aj klávesnicou
     document.getElementById('brokeri').innerHTML = `
-    <div class="table-responsive">
+    <div class="table-responsive" tabindex="0" role="region" aria-labelledby="nadpisBrokeri">
     <table class="table table-hover text-center align-middle">
         <thead class="table-dark">
             <tr>
